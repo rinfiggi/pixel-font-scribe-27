@@ -16,11 +16,10 @@ const Header = () => {
           <div className="mt-4 text-xs">
             <div className="grid grid-cols-3 gap-4 text-soft-pink">
               <div className="text-right">
-                <a href="#art" className="block hover:text-pixel-purple">- art house</a>
-                <a href="#weird" className="block hover:text-pixel-purple">- weird</a>
-                <a href="#chaos" className="block hover:text-pixel-purple">- chaos</a>
-                <a href="#strange" className="block hover:text-pixel-purple">- strange</a>
-                <a href="#patterns" className="block hover:text-pixel-purple">- patterns</a>
+                <a href="#tour" className="block hover:text-pixel-purple">- tour</a>
+                <a href="#music" className="block hover:text-pixel-purple">- music</a>
+                <a href="#merch" className="block hover:text-pixel-purple">- merch</a>
+                <a href="#newsletter" className="block hover:text-pixel-purple">- newsletter</a>
               </div>
               <div className="flex items-center justify-center">
                 <span className="text-2xl">&lt;3</span>

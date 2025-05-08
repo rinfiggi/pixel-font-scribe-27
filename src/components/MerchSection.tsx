@@ -7,6 +7,7 @@ interface MerchItem {
   name: string;
   image: string;
   type: string;
+  priority: number;
 }
 
 const MerchSection = () => {
@@ -15,30 +16,50 @@ const MerchSection = () => {
       id: 1, 
       name: "voicemail + the lost transmissions vinyl", 
       image: "/lovable-uploads/0692eb72-664b-422c-913c-e01d00745392.png",
-      type: "vinyl"
+      type: "vinyl",
+      priority: 1
     },
     { 
       id: 2, 
-      name: "voicemail cd", 
+      name: "voicemail vinyl", 
       image: "/lovable-uploads/0692eb72-664b-422c-913c-e01d00745392.png",
-      type: "cd" 
+      type: "vinyl",
+      priority: 2
     },
     { 
       id: 3, 
+      name: "voicemail + the lost transmissions cd", 
+      image: "/lovable-uploads/0692eb72-664b-422c-913c-e01d00745392.png",
+      type: "cd",
+      priority: 3 
+    },
+    { 
+      id: 4, 
+      name: "voicemail cd", 
+      image: "/lovable-uploads/0692eb72-664b-422c-913c-e01d00745392.png",
+      type: "cd",
+      priority: 4
+    },
+    { 
+      id: 5, 
       name: "richard died,\njanuary killed\nhim - tote bag", 
       image: "/lovable-uploads/0692eb72-664b-422c-913c-e01d00745392.png",
-      type: "merch"
+      type: "merch",
+      priority: 5
     }
   ];
+
+  // Sort items by priority
+  const sortedItems = [...merchItems].sort((a, b) => a.priority - b.priority);
 
   const [currentItem, setCurrentItem] = React.useState(0);
 
   const prevItem = () => {
-    setCurrentItem(curr => (curr - 1 + merchItems.length) % merchItems.length);
+    setCurrentItem(curr => (curr - 1 + sortedItems.length) % sortedItems.length);
   };
   
   const nextItem = () => {
-    setCurrentItem(curr => (curr + 1) % merchItems.length);
+    setCurrentItem(curr => (curr + 1) % sortedItems.length);
   };
 
   const renderItemIcon = (type: string) => {
@@ -66,15 +87,15 @@ const MerchSection = () => {
         
         <div className="flex-grow flex flex-col items-center max-w-xs">
           <div className="w-48 h-48 mb-4 flex flex-col items-center justify-center">
-            {renderItemIcon(merchItems[currentItem].type)}
+            {renderItemIcon(sortedItems[currentItem].type)}
             <img 
-              src={merchItems[currentItem].image} 
-              alt={`${merchItems[currentItem].name} merch`} 
+              src={sortedItems[currentItem].image} 
+              alt={`${sortedItems[currentItem].name} merch`} 
               className="w-full h-full object-contain"
             />
           </div>
           <p className="text-soft-pink text-center mb-4 whitespace-pre-line">
-            {merchItems[currentItem].name}
+            {sortedItems[currentItem].name}
           </p>
           <button className="pixel-button">buy</button>
         </div>
