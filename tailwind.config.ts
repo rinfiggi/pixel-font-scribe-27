@@ -24,7 +24,7 @@ export default {
 			},
 			colors: {
 				'hot-pink': '#ff69b4',
-				'soft-pink': '#FFDEE2',
+				'soft-pink': '#ffc1cb',
 				'dark-purple': '#1A1F2C',
 				'pixel-purple': '#9b87f5',
 				border: 'hsl(var(--border))',

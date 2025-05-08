@@ -13,7 +13,7 @@ const SubscribeSection = () => {
     
     if (!email || !location || !agreedToTerms) {
       toast({
-        title: "Please fill all required fields",
+        title: "please fill all required fields",
         variant: "destructive",
       });
       return;
@@ -21,8 +21,8 @@ const SubscribeSection = () => {
 
     // Subscription logic would go here
     toast({
-      title: "Thanks for subscribing!",
-      description: "You'll be the first to know about new music and tour dates.",
+      title: "thanks for subscribing!",
+      description: "you'll be the first to know about new music and tour dates.",
     });
 
     setEmail('');
@@ -36,7 +36,7 @@ const SubscribeSection = () => {
       <h2 className="pixel-section-title">subscribe</h2>
 
       <div className="max-w-md w-full text-center mx-auto mb-6">
-        <p className="text-dark-purple text-sm mb-8">
+        <p className="text-soft-pink text-sm mb-8">
           ! <span className="underline">newsletter-txt:'s</span> !<br/>
           <br/>
           heyy, you can sign up for the newsletter below. you'll find the form to join my telegram channel too so we can chat n stuff. i promise to only send u cool shit n not spam your inbox all the time, pinky promise.<br/>
@@ -53,8 +53,8 @@ const SubscribeSection = () => {
             <input 
               type="text"
               placeholder="your name"
-              className="w-full p-2 bg-soft-pink border-2 border-pixel-purple text-dark-purple"
-              aria-label="Your name"
+              className="w-full p-2 bg-dark-purple border-2 border-pixel-purple text-soft-pink"
+              aria-label="your name"
             />
           </div>
 
@@ -64,9 +64,9 @@ const SubscribeSection = () => {
               placeholder="email address"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full p-2 bg-soft-pink border-2 border-pixel-purple text-dark-purple"
+              className="w-full p-2 bg-dark-purple border-2 border-pixel-purple text-soft-pink"
               required
-              aria-label="Your email address"
+              aria-label="your email address"
             />
           </div>
 
@@ -76,9 +76,9 @@ const SubscribeSection = () => {
               placeholder="where you live?"
               value={location}
               onChange={(e) => setLocation(e.target.value)}
-              className="w-full p-2 bg-soft-pink border-2 border-pixel-purple text-dark-purple"
+              className="w-full p-2 bg-dark-purple border-2 border-pixel-purple text-soft-pink"
               required
-              aria-label="Your location"
+              aria-label="your location"
             />
           </div>
 
@@ -91,8 +91,8 @@ const SubscribeSection = () => {
               className="mt-1"
               required
             />
-            <label htmlFor="terms" className="text-dark-purple">
-              I agree to the processing of my personal data in accordance with the privacy policy
+            <label htmlFor="terms" className="text-soft-pink">
+              i agree to the processing of my personal data in accordance with the privacy policy
             </label>
           </div>
 
@@ -104,8 +104,8 @@ const SubscribeSection = () => {
               onChange={() => setAgreedToNewsletter(!agreedToNewsletter)}
               className="mt-1"
             />
-            <label htmlFor="newsletter" className="text-dark-purple">
-              I accept the terms and conditions and hope you'll send me awesome updates!
+            <label htmlFor="newsletter" className="text-soft-pink">
+              i accept the terms and conditions and hope you'll send me awesome updates!
             </label>
           </div>
 
@@ -115,13 +115,13 @@ const SubscribeSection = () => {
               id="telegram"
               className="mt-1"
             />
-            <label htmlFor="telegram" className="text-dark-purple">
-              I'd like to receive exclusive content and updates via telegram
+            <label htmlFor="telegram" className="text-soft-pink">
+              i'd like to receive exclusive content and updates via telegram
             </label>
           </div>
 
           <div className="mt-4">
-            <button type="submit" className="pixel-button w-full">SUBSCRIBE</button>
+            <button type="submit" className="pixel-button w-full">subscribe</button>
           </div>
         </form>
       </div>

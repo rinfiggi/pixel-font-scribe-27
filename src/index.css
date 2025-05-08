@@ -90,7 +90,7 @@
   }
 
   body {
-    @apply bg-soft-pink text-foreground font-pixel;
+    @apply bg-dark-purple text-foreground font-pixel;
     background-image: url('/lovable-uploads/0692eb72-664b-422c-913c-e01d00745392.png');
     background-size: cover;
     background-attachment: fixed;
