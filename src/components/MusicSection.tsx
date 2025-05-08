@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { ChevronLeft, ChevronRight, Headphones, ExternalLink } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Headphones, ExternalLink, Disc } from 'lucide-react';
 
 interface MusicTrack {
   id: number;
@@ -11,6 +11,8 @@ interface MusicTrack {
 const MusicSection = () => {
   const tracks: MusicTrack[] = [
     { id: 1, title: "i'd like to know if you're happy", isDemo: true },
+    { id: 2, title: "voicemail", isDemo: false },
+    { id: 3, title: "the lost transmissions", isDemo: false },
   ];
   
   const [currentTrack, setCurrentTrack] = React.useState(0);
@@ -43,12 +45,17 @@ const MusicSection = () => {
         </button>
         
         <div className="flex-grow flex flex-col items-center">
-          <div className="w-40 h-40 bg-pixel-purple mb-4"></div>
+          <div className="w-40 h-40 bg-pixel-purple mb-4 flex items-center justify-center">
+            <Disc size={32} className="text-dark-purple" />
+          </div>
           
           <h3 className="text-soft-pink text-center mb-1">
             {tracks[currentTrack].title} {tracks[currentTrack].isDemo && "(demo)"}
           </h3>
-          <button className="text-xs text-pixel-purple underline mt-1">listen</button>
+          <div className="flex gap-4 mt-3">
+            <a href="#listen" className="text-xs text-pixel-purple underline hover:text-soft-pink">listen</a>
+            <a href="#buy" className="text-xs text-pixel-purple underline hover:text-soft-pink">buy</a>
+          </div>
         </div>
         
         <button 

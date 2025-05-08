@@ -25,7 +25,7 @@ export default {
 			colors: {
 				'hot-pink': '#ff69b4',
 				'soft-pink': '#ffc1cb',
-				'dark-purple': '#1A1F2C',
+				'dark-purple': '#13121A',
 				'pixel-purple': '#9b87f5',
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -72,7 +72,7 @@ export default {
 				}
 			},
 			backgroundImage: {
-				'pink-noise': "url('/lovable-uploads/0692eb72-664b-422c-913c-e01d00745392.png')",
+				'grain': "url('data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E')",
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

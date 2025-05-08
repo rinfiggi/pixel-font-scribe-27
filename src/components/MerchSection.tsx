@@ -1,24 +1,33 @@
 
 import React from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Disc, ShoppingBag } from 'lucide-react';
 
 interface MerchItem {
   id: number;
   name: string;
   image: string;
+  type: string;
 }
 
 const MerchSection = () => {
   const merchItems: MerchItem[] = [
     { 
       id: 1, 
-      name: "richard died,\njanuary killed\nhim - tote bag", 
-      image: "/lovable-uploads/0692eb72-664b-422c-913c-e01d00745392.png" 
+      name: "voicemail + the lost transmissions vinyl", 
+      image: "/lovable-uploads/0692eb72-664b-422c-913c-e01d00745392.png",
+      type: "vinyl"
     },
     { 
       id: 2, 
-      name: "pixel shirt", 
-      image: "/lovable-uploads/0692eb72-664b-422c-913c-e01d00745392.png" 
+      name: "voicemail cd", 
+      image: "/lovable-uploads/0692eb72-664b-422c-913c-e01d00745392.png",
+      type: "cd" 
+    },
+    { 
+      id: 3, 
+      name: "richard died,\njanuary killed\nhim - tote bag", 
+      image: "/lovable-uploads/0692eb72-664b-422c-913c-e01d00745392.png",
+      type: "merch"
     }
   ];
 
@@ -30,6 +39,16 @@ const MerchSection = () => {
   
   const nextItem = () => {
     setCurrentItem(curr => (curr + 1) % merchItems.length);
+  };
+
+  const renderItemIcon = (type: string) => {
+    switch(type) {
+      case 'vinyl':
+      case 'cd':
+        return <Disc size={24} className="mb-2 text-soft-pink" />;
+      default:
+        return <ShoppingBag size={24} className="mb-2 text-soft-pink" />;
+    }
   };
 
   return (
@@ -46,7 +65,8 @@ const MerchSection = () => {
         </button>
         
         <div className="flex-grow flex flex-col items-center max-w-xs">
-          <div className="w-48 h-48 mb-4">
+          <div className="w-48 h-48 mb-4 flex flex-col items-center justify-center">
+            {renderItemIcon(merchItems[currentItem].type)}
             <img 
               src={merchItems[currentItem].image} 
               alt={`${merchItems[currentItem].name} merch`} 
