@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Headphones, ExternalLink } from 'lucide-react';
 
 interface MusicTrack {
   id: number;
@@ -58,6 +58,32 @@ const MusicSection = () => {
         >
           <ChevronRight size={32} />
         </button>
+      </div>
+      
+      <div className="mt-12 py-4 border-t border-b border-pixel-purple/30 text-center max-w-md mx-auto">
+        <p className="text-soft-pink text-sm mb-3 px-4">
+          stream or buy "voicemail + the lost transmissions"
+        </p>
+        <div className="flex justify-center gap-4">
+          <a 
+            href="https://open.spotify.com" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1 text-pixel-purple hover:text-soft-pink"
+          >
+            <Headphones size={14} />
+            <span className="text-xs">stream</span>
+          </a>
+          <a 
+            href="https://bandcamp.com" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1 text-pixel-purple hover:text-soft-pink"
+          >
+            <ExternalLink size={14} />
+            <span className="text-xs">buy</span>
+          </a>
+        </div>
       </div>
     </section>
   );

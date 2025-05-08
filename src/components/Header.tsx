@@ -12,21 +12,21 @@ const Header = () => {
           <div className="mt-4 text-xs">
             <div className="grid grid-cols-3 gap-4 text-soft-pink">
               <div className="text-right">
-                - art house<br />
-                - weird<br />
-                - chaos<br />
-                - strange<br />
-                - patterns
+                <a href="#art" className="block hover:text-pixel-purple">- art house</a>
+                <a href="#weird" className="block hover:text-pixel-purple">- weird</a>
+                <a href="#chaos" className="block hover:text-pixel-purple">- chaos</a>
+                <a href="#strange" className="block hover:text-pixel-purple">- strange</a>
+                <a href="#patterns" className="block hover:text-pixel-purple">- patterns</a>
               </div>
               <div className="flex items-center justify-center">
                 <span className="text-2xl">&lt;3</span>
               </div>
               <div className="text-left">
-                the<br />
-                world<br />
-                isn't<br />
-                real<br />
-                irl
+                <a href="#the" className="block hover:text-pixel-purple">the</a>
+                <a href="#world" className="block hover:text-pixel-purple">world</a>
+                <a href="#isnt" className="block hover:text-pixel-purple">isn't</a>
+                <a href="#real" className="block hover:text-pixel-purple">real</a>
+                <a href="#irl" className="block hover:text-pixel-purple">irl</a>
               </div>
             </div>
           </div>
