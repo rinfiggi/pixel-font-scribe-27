@@ -11,41 +11,39 @@ interface MerchItem {
 }
 
 const MerchSection = () => {
-  const baseUrl = import.meta.env.BASE_URL || '/';
-  
   const merchItems: MerchItem[] = [
     { 
       id: 1, 
       name: "voicemail + the lost transmissions vinyl", 
-      image: `${baseUrl}lovable-uploads/0692eb72-664b-422c-913c-e01d00745392.png`,
+      image: "/lovable-uploads/0692eb72-664b-422c-913c-e01d00745392.png",
       type: "vinyl",
       priority: 1
     },
     { 
       id: 2, 
       name: "voicemail vinyl", 
-      image: `${baseUrl}lovable-uploads/0692eb72-664b-422c-913c-e01d00745392.png`,
+      image: "/lovable-uploads/0692eb72-664b-422c-913c-e01d00745392.png",
       type: "vinyl",
       priority: 2
     },
     { 
       id: 3, 
       name: "voicemail + the lost transmissions cd", 
-      image: `${baseUrl}lovable-uploads/0692eb72-664b-422c-913c-e01d00745392.png`,
+      image: "/lovable-uploads/0692eb72-664b-422c-913c-e01d00745392.png",
       type: "cd",
       priority: 3 
     },
     { 
       id: 4, 
       name: "voicemail cd", 
-      image: `${baseUrl}lovable-uploads/0692eb72-664b-422c-913c-e01d00745392.png`,
+      image: "/lovable-uploads/0692eb72-664b-422c-913c-e01d00745392.png",
       type: "cd",
       priority: 4
     },
     { 
       id: 5, 
       name: "richard died,\njanuary killed\nhim - tote bag", 
-      image: `${baseUrl}lovable-uploads/0692eb72-664b-422c-913c-e01d00745392.png`,
+      image: "/lovable-uploads/0692eb72-664b-422c-913c-e01d00745392.png",
       type: "merch",
       priority: 5
     }
