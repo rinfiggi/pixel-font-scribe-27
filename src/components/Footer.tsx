@@ -13,7 +13,7 @@ const Footer = () => {
           />
         </div>
         <p className="mt-4 text-xs text-soft-pink opacity-70">
-          &copy; {new Date().getFullYear()} rinfiggi • all rights reserved ☆ ✧ ✦ ★
+          &copy; {new Date().getFullYear()} rinfiggi • all rights reserved ✧
         </p>
       </div>
     </footer>

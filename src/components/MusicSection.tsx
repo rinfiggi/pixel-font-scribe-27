@@ -31,10 +31,10 @@ const MusicSection = () => {
     <section className="pixel-section">
       <h2 className="pixel-section-title">music ✧</h2>
       <div className="text-soft-pink text-xs mb-6">
-        <a href="#releases" className="block hover:text-pixel-purple mb-1">latest releases ☆</a>
-        <a href="#albums" className="block hover:text-pixel-purple mb-1">albums ☆</a>
-        <a href="#singles" className="block hover:text-pixel-purple mb-1">singles ☆</a>
-        <a href="#demos" className="block hover:text-pixel-purple">demo/drafts ☆</a>
+        <a href="#releases" className="block hover:text-pixel-purple mb-1">latest releases</a>
+        <a href="#albums" className="block hover:text-pixel-purple mb-1">albums</a>
+        <a href="#singles" className="block hover:text-pixel-purple mb-1">singles</a>
+        <a href="#demos" className="block hover:text-pixel-purple">demo/drafts</a>
       </div>
 
       <div className="w-full max-w-2xl flex items-center justify-center">
@@ -59,8 +59,8 @@ const MusicSection = () => {
              tracks[currentTrack].type === 'single' ? 'single' : 'demo'}
           </p>
           <div className="flex gap-4 mt-3">
-            <a href="#listen" className="text-xs text-pixel-purple underline hover:text-soft-pink">listen ✧</a>
-            <a href="#buy" className="text-xs text-pixel-purple underline hover:text-soft-pink">buy ✧</a>
+            <a href="#listen" className="text-xs text-pixel-purple underline hover:text-soft-pink">✧ listen</a>
+            <a href="#buy" className="text-xs text-pixel-purple underline hover:text-soft-pink">✧ buy</a>
           </div>
         </div>
         
@@ -75,7 +75,7 @@ const MusicSection = () => {
       
       <div className="mt-12 py-4 border-t border-b border-pixel-purple/30 text-center max-w-md mx-auto">
         <p className="text-soft-pink text-sm mb-3 px-4">
-          stream or buy "voicemail + the lost transmissions" ☆
+          stream or buy "voicemail + the lost transmissions"
         </p>
         <div className="flex justify-center gap-4">
           <a 

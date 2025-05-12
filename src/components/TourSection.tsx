@@ -9,14 +9,23 @@ const TourSection = () => {
     script.async = true;
     document.body.appendChild(script);
 
+    // Initialize widget after script has loaded
+    script.onload = () => {
+      if (window.BIT) {
+        window.BIT.init();
+      }
+    };
+
     return () => {
-      document.body.removeChild(script);
+      if (script.parentNode) {
+        document.body.removeChild(script);
+      }
     };
   }, []);
 
   return (
     <section className="pixel-section">
-      <h2 className="pixel-section-title">tour ☆</h2>
+      <h2 className="pixel-section-title">tour</h2>
       <div className="max-w-md w-full text-center text-soft-pink text-sm mx-auto">
         <p className="mb-6">
           no tour dates rn but we're
@@ -55,7 +64,8 @@ const TourSection = () => {
                 }
               `}
             </style>
-            <a className="bit-widget-initializer"
+            <a 
+              className="bit-widget-initializer"
               data-artist-name="id_15568391"
               data-events-to-display=""
               data-background-color="rgba(19, 18, 26, 0.8)"
@@ -106,7 +116,7 @@ const TourSection = () => {
               data-event-rsvp-cta-border-radius="0px"
               data-follow-section-position="top"
               data-follow-section-alignment="center"
-              data-follow-section-header-text="Get updates on new shows, new music, and more ☆"
+              data-follow-section-header-text="Get updates on new shows, new music, and more"
               data-follow-section-cta-size="medium"
               data-follow-section-cta-text="FOLLOW"
               data-follow-section-cta-icon="false"
@@ -128,6 +138,7 @@ const TourSection = () => {
               data-play-my-city-cta-border-radius="0px"
               data-language="en"
               data-layout-breakpoint="900"
+              data-app-id="js_e7788911-f441-44f5-8ade-039a101a9f21"
               data-bit-logo-position="bottomRight"
               data-bit-logo-color="rgba(155, 135, 245, 0.7)"
             ></a>
@@ -137,5 +148,14 @@ const TourSection = () => {
     </section>
   );
 };
+
+// Add Window interface extension to handle BIT global
+declare global {
+  interface Window {
+    BIT?: {
+      init: () => void;
+    };
+  }
+}
 
 export default TourSection;
