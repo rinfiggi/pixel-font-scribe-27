@@ -6,13 +6,15 @@ interface MusicTrack {
   id: number;
   title: string;
   isDemo: boolean;
+  type: 'album' | 'single' | 'demo';
 }
 
 const MusicSection = () => {
   const tracks: MusicTrack[] = [
-    { id: 1, title: "i'd like to know if you're happy", isDemo: true },
-    { id: 2, title: "voicemail", isDemo: false },
-    { id: 3, title: "the lost transmissions", isDemo: false },
+    { id: 1, title: "i'd like to know if you're happy", isDemo: true, type: 'demo' },
+    { id: 2, title: "voicemail + the lost transmissions", isDemo: false, type: 'album' },
+    { id: 3, title: "valentine's day", isDemo: false, type: 'single' },
+    { id: 4, title: "tyler", isDemo: false, type: 'single' },
   ];
   
   const [currentTrack, setCurrentTrack] = React.useState(0);
@@ -27,12 +29,12 @@ const MusicSection = () => {
 
   return (
     <section className="pixel-section">
-      <h2 className="pixel-section-title">music</h2>
+      <h2 className="pixel-section-title">music ✧</h2>
       <div className="text-soft-pink text-xs mb-6">
-        <a href="#releases" className="block hover:text-pixel-purple mb-1">latest releases</a>
-        <a href="#albums" className="block hover:text-pixel-purple mb-1">albums</a>
-        <a href="#singles" className="block hover:text-pixel-purple mb-1">singles</a>
-        <a href="#demos" className="block hover:text-pixel-purple">demo/drafts</a>
+        <a href="#releases" className="block hover:text-pixel-purple mb-1">latest releases ☆</a>
+        <a href="#albums" className="block hover:text-pixel-purple mb-1">albums ☆</a>
+        <a href="#singles" className="block hover:text-pixel-purple mb-1">singles ☆</a>
+        <a href="#demos" className="block hover:text-pixel-purple">demo/drafts ☆</a>
       </div>
 
       <div className="w-full max-w-2xl flex items-center justify-center">
@@ -52,9 +54,13 @@ const MusicSection = () => {
           <h3 className="text-soft-pink text-center mb-1">
             {tracks[currentTrack].title} {tracks[currentTrack].isDemo && "(demo)"}
           </h3>
+          <p className="text-xs text-pixel-purple mb-2">
+            {tracks[currentTrack].type === 'album' ? 'album' : 
+             tracks[currentTrack].type === 'single' ? 'single' : 'demo'}
+          </p>
           <div className="flex gap-4 mt-3">
-            <a href="#listen" className="text-xs text-pixel-purple underline hover:text-soft-pink">listen</a>
-            <a href="#buy" className="text-xs text-pixel-purple underline hover:text-soft-pink">buy</a>
+            <a href="#listen" className="text-xs text-pixel-purple underline hover:text-soft-pink">listen ✧</a>
+            <a href="#buy" className="text-xs text-pixel-purple underline hover:text-soft-pink">buy ✧</a>
           </div>
         </div>
         
@@ -69,7 +75,7 @@ const MusicSection = () => {
       
       <div className="mt-12 py-4 border-t border-b border-pixel-purple/30 text-center max-w-md mx-auto">
         <p className="text-soft-pink text-sm mb-3 px-4">
-          stream or buy "voicemail + the lost transmissions"
+          stream or buy "voicemail + the lost transmissions" ☆
         </p>
         <div className="flex justify-center gap-4">
           <a 

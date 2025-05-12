@@ -33,26 +33,18 @@ const SubscribeSection = () => {
 
   return (
     <section className="pixel-section">
-      <h2 className="pixel-section-title">subscribe</h2>
+      <h2 className="pixel-section-title">subscribe ✦</h2>
 
       <div className="max-w-md w-full text-center mx-auto mb-6">
         <p className="text-soft-pink text-sm mb-8">
-          ! <span className="underline">newsletter-txt:'s</span> !<br/>
-          <br/>
-          heyy, you can sign up for the newsletter below. you'll find the form to join my telegram channel too so we can chat n stuff. i promise to only send u cool shit n not spam your inbox all the time, pinky promise.<br/>
-          <br/>
-          - - - - - - - - -<br/>
-          <br/>
-          i almost always respond to emails so feel free to send me a msg anytime, i love hearing from u guys.<br/>
-          <br/>
-          to learn more about how your data is collected and managed, click here to read our privacy policy. i value ur trust.
+          heyy, you can sign up for the newsletter below.
         </p>
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-4">
           <div>
             <input 
               type="text"
-              placeholder="your name"
+              placeholder="your name ☆"
               className="w-full p-2 bg-dark-purple border-2 border-pixel-purple text-soft-pink"
               aria-label="your name"
             />
@@ -61,7 +53,7 @@ const SubscribeSection = () => {
           <div>
             <input 
               type="email"
-              placeholder="email address"
+              placeholder="email address ☆"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               className="w-full p-2 bg-dark-purple border-2 border-pixel-purple text-soft-pink"
@@ -73,7 +65,7 @@ const SubscribeSection = () => {
           <div>
             <input 
               type="text"
-              placeholder="where you live?"
+              placeholder="where you live? ☆"
               value={location}
               onChange={(e) => setLocation(e.target.value)}
               className="w-full p-2 bg-dark-purple border-2 border-pixel-purple text-soft-pink"
@@ -92,7 +84,7 @@ const SubscribeSection = () => {
               required
             />
             <label htmlFor="terms" className="text-soft-pink">
-              i agree to the processing of my personal data in accordance with the privacy policy
+              i agree to the processing of my personal data ✧
             </label>
           </div>
 
@@ -105,7 +97,7 @@ const SubscribeSection = () => {
               className="mt-1"
             />
             <label htmlFor="newsletter" className="text-soft-pink">
-              i accept the terms and conditions and hope you'll send me awesome updates!
+              i hope you'll send me awesome updates! ✧
             </label>
           </div>
 
@@ -116,12 +108,12 @@ const SubscribeSection = () => {
               className="mt-1"
             />
             <label htmlFor="telegram" className="text-soft-pink">
-              i'd like to receive exclusive content and updates via telegram
+              i'd like to receive exclusive content via telegram ✧
             </label>
           </div>
 
           <div className="mt-4">
-            <button type="submit" className="pixel-button w-full">subscribe</button>
+            <button type="submit" className="pixel-button w-full">subscribe ★</button>
           </div>
         </form>
       </div>

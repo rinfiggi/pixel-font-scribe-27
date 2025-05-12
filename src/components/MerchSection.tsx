@@ -8,6 +8,7 @@ interface MerchItem {
   image: string;
   type: string;
   priority: number;
+  price: string;
 }
 
 const MerchSection = () => {
@@ -17,35 +18,40 @@ const MerchSection = () => {
       name: "voicemail + the lost transmissions vinyl", 
       image: "/lovable-uploads/0692eb72-664b-422c-913c-e01d00745392.png",
       type: "vinyl",
-      priority: 1
+      priority: 1,
+      price: "$25.99"
     },
     { 
       id: 2, 
       name: "voicemail vinyl", 
       image: "/lovable-uploads/0692eb72-664b-422c-913c-e01d00745392.png",
       type: "vinyl",
-      priority: 2
+      priority: 2,
+      price: "$19.99"
     },
     { 
       id: 3, 
       name: "voicemail + the lost transmissions cd", 
       image: "/lovable-uploads/0692eb72-664b-422c-913c-e01d00745392.png",
       type: "cd",
-      priority: 3 
+      priority: 3,
+      price: "$12.99"
     },
     { 
       id: 4, 
       name: "voicemail cd", 
       image: "/lovable-uploads/0692eb72-664b-422c-913c-e01d00745392.png",
       type: "cd",
-      priority: 4
+      priority: 4,
+      price: "$9.99"
     },
     { 
       id: 5, 
       name: "richard died,\njanuary killed\nhim - tote bag", 
       image: "/lovable-uploads/0692eb72-664b-422c-913c-e01d00745392.png",
       type: "merch",
-      priority: 5
+      priority: 5,
+      price: "$15.99"
     }
   ];
 
@@ -74,7 +80,7 @@ const MerchSection = () => {
 
   return (
     <section className="pixel-section">
-      <h2 className="pixel-section-title">merch</h2>
+      <h2 className="pixel-section-title">merch ★</h2>
 
       <div className="w-full max-w-2xl flex items-center justify-center">
         <button 
@@ -94,10 +100,13 @@ const MerchSection = () => {
               className="w-full h-full object-contain"
             />
           </div>
-          <p className="text-soft-pink text-center mb-4 whitespace-pre-line">
+          <p className="text-soft-pink text-center mb-2 whitespace-pre-line">
             {sortedItems[currentItem].name}
           </p>
-          <button className="pixel-button">buy</button>
+          <p className="text-pixel-purple text-center mb-4">
+            {sortedItems[currentItem].price}
+          </p>
+          <button className="pixel-button">buy ✧</button>
         </div>
         
         <button 
