@@ -25,7 +25,7 @@ const TourSection = () => {
 
   return (
     <section className="pixel-section">
-      <h2 className="pixel-section-title">tour</h2>
+      {/* Remove the h2 title */}
       <div className="max-w-md w-full text-center text-soft-pink text-sm mx-auto">
         <div className="w-full">
           {/* Bandsintown Widget */}
@@ -39,13 +39,13 @@ const TourSection = () => {
                   color: #ffc1cb;
                   font-size: 12px;
                   text-transform: lowercase;
-                  line-height: 1.6;
+                  line-height: 2;
                 }
                 .bit-table {
                   width: 100%;
                 }
                 .bit-table td {
-                  padding: 10px 12px;
+                  padding: 12px 12px;
                   vertical-align: middle;
                 }
                 .bit-table a {
@@ -58,6 +58,22 @@ const TourSection = () => {
                 .bit-table .bit-cta {
                   text-align: center;
                   width: 25%;
+                }
+                /* Hide the Follow button and updates message */
+                .bit-follow-section, .bit-follow-section-header-text {
+                  display: none !important;
+                }
+                /* Hide "no upcoming events" message */
+                .bit-no-dates-container, .bit-no-dates-text {
+                  display: none !important;
+                }
+                /* Make past shows lowercase */
+                .bit-local-dates-button {
+                  text-transform: lowercase !important;
+                }
+                /* Additional line height for better readability */
+                .bit-event-list-container {
+                  line-height: 1.8;
                 }
               `}
             </style>
