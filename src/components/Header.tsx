@@ -19,7 +19,7 @@ const Header = () => {
                 <a href="#tour" className="block hover:text-pixel-purple">- tour</a>
                 <a href="#music" className="block hover:text-pixel-purple">- music</a>
                 <a href="#merch" className="block hover:text-pixel-purple">- merch</a>
-                <a href="#newsletter" className="block hover:text-pixel-purple">- newsletter</a>
+                <a href="#newsletter" className="block hover:text-pixel-purple">- updates</a>
               </div>
               <div className="flex items-center justify-center">
                 <span className="text-2xl">&lt;3</span>

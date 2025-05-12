@@ -6,6 +6,7 @@ import MusicSection from '../components/MusicSection';
 import MerchSection from '../components/MerchSection';
 import SubscribeSection from '../components/SubscribeSection';
 import Footer from '../components/Footer';
+import CookieBanner from '../components/CookieBanner';
 
 const Index = () => {
   return (
@@ -33,6 +34,7 @@ const Index = () => {
         
         <Footer />
       </div>
+      <CookieBanner />
     </div>
   );
 };

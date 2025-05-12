@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { ChevronLeft, ChevronRight, Disc, ShoppingBag } from 'lucide-react';
 
@@ -19,7 +18,7 @@ const MerchSection = () => {
       image: "/lovable-uploads/0692eb72-664b-422c-913c-e01d00745392.png",
       type: "vinyl",
       priority: 1,
-      price: "$25.99"
+      price: "€22.99"
     },
     { 
       id: 2, 
@@ -27,7 +26,7 @@ const MerchSection = () => {
       image: "/lovable-uploads/0692eb72-664b-422c-913c-e01d00745392.png",
       type: "vinyl",
       priority: 2,
-      price: "$19.99"
+      price: "€17.99"
     },
     { 
       id: 3, 
@@ -35,7 +34,7 @@ const MerchSection = () => {
       image: "/lovable-uploads/0692eb72-664b-422c-913c-e01d00745392.png",
       type: "cd",
       priority: 3,
-      price: "$12.99"
+      price: "€11.99"
     },
     { 
       id: 4, 
@@ -43,7 +42,7 @@ const MerchSection = () => {
       image: "/lovable-uploads/0692eb72-664b-422c-913c-e01d00745392.png",
       type: "cd",
       priority: 4,
-      price: "$9.99"
+      price: "€8.99"
     },
     { 
       id: 5, 
@@ -51,7 +50,7 @@ const MerchSection = () => {
       image: "/lovable-uploads/0692eb72-664b-422c-913c-e01d00745392.png",
       type: "merch",
       priority: 5,
-      price: "$15.99"
+      price: "€14.99"
     }
   ];
 
@@ -80,7 +79,7 @@ const MerchSection = () => {
 
   return (
     <section className="pixel-section">
-      <h2 className="pixel-section-title">merch ★</h2>
+      <h2 className="pixel-section-title">merch</h2>
 
       <div className="w-full max-w-2xl flex items-center justify-center">
         <button 
