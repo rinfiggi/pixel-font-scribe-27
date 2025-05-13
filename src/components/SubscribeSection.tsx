@@ -5,13 +5,14 @@ import { toast } from "../components/ui/use-toast";
 const SubscribeSection = () => {
   const [email, setEmail] = useState('');
   const [location, setLocation] = useState('');
-  const [agreedToTerms, setAgreedToTerms] = useState(false);
+  const [name, setName] = useState('');
+  const [agreedToPrivacy, setAgreedToPrivacy] = useState(false);
   const [agreedToNewsletter, setAgreedToNewsletter] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!email || !location || !agreedToTerms) {
+    if (!email || !location || !agreedToPrivacy) {
       toast({
         title: "please fill all required fields",
         variant: "destructive",
@@ -27,7 +28,8 @@ const SubscribeSection = () => {
 
     setEmail('');
     setLocation('');
-    setAgreedToTerms(false);
+    setName('');
+    setAgreedToPrivacy(false);
     setAgreedToNewsletter(false);
   };
 
@@ -47,6 +49,8 @@ const SubscribeSection = () => {
               placeholder="your name"
               className="w-full p-2 bg-dark-purple border-2 border-pixel-purple text-soft-pink"
               aria-label="your name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
             />
           </div>
 
@@ -77,14 +81,14 @@ const SubscribeSection = () => {
           <div className="flex items-start gap-2 text-left text-xs">
             <input 
               type="checkbox" 
-              id="terms"
-              checked={agreedToTerms}
-              onChange={() => setAgreedToTerms(!agreedToTerms)}
+              id="privacy"
+              checked={agreedToPrivacy}
+              onChange={() => setAgreedToPrivacy(!agreedToPrivacy)}
               className="mt-1"
               required
             />
-            <label htmlFor="terms" className="text-soft-pink">
-              i agree to the processing of my personal data
+            <label htmlFor="privacy" className="text-soft-pink">
+              i consent to the processing of my personal data according to the privacy policy
             </label>
           </div>
 
@@ -97,18 +101,7 @@ const SubscribeSection = () => {
               className="mt-1"
             />
             <label htmlFor="newsletter" className="text-soft-pink">
-              i hope you'll send me awesome updates!
-            </label>
-          </div>
-
-          <div className="flex items-start gap-2 text-left text-xs">
-            <input 
-              type="checkbox" 
-              id="telegram"
-              className="mt-1"
-            />
-            <label htmlFor="telegram" className="text-soft-pink">
-              i'd like to receive exclusive content via telegram
+              i want to receive news about upcoming tour dates and music releases
             </label>
           </div>
 

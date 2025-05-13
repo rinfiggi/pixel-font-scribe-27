@@ -18,18 +18,13 @@ const Header = () => {
               <div className="text-right">
                 <a href="#tour" className="block hover:text-pixel-purple">- tour</a>
                 <a href="#music" className="block hover:text-pixel-purple">- music</a>
-                <a href="#merch" className="block hover:text-pixel-purple">- merch</a>
-                <a href="#newsletter" className="block hover:text-pixel-purple">- updates</a>
               </div>
               <div className="flex items-center justify-center">
                 <span className="text-2xl">&lt;3</span>
               </div>
               <div className="text-left">
-                <span className="block">the</span>
-                <span className="block">world</span>
-                <span className="block">isn't</span>
-                <span className="block">real</span>
-                <span className="block">irl</span>
+                <a href="#merch" className="block hover:text-pixel-purple">- merch</a>
+                <a href="#newsletter" className="block hover:text-pixel-purple">- updates</a>
               </div>
             </div>
           </div>
