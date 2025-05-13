@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -21,6 +20,7 @@ export default {
 		extend: {
 			fontFamily: {
 				'pixel': ['"Press Start 2P"', 'cursive'],
+				'jacquard': ['"Jacquard 12"', 'serif'],
 			},
 			colors: {
 				'hot-pink': '#ff69b4',

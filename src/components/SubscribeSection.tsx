@@ -17,13 +17,11 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 
 const formSchema = z.object({
-  name: z.string().optional(),
   email: z.string().email({ message: "please enter a valid email" }),
-  location: z.string().min(1, { message: "please enter a location" }),
   privacyConsent: z.literal(true, {
     errorMap: () => ({ message: "you must accept the privacy policy" }),
   }),
-  newsletterConsent: z.boolean().optional(),
+  newsletterConsent: z.boolean().default(true),
 });
 
 type SubscribeFormValues = z.infer<typeof formSchema>;
@@ -34,11 +32,9 @@ const SubscribeSection = () => {
   const form = useForm<SubscribeFormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      name: "",
       email: "",
-      location: "",
       privacyConsent: false,
-      newsletterConsent: false,
+      newsletterConsent: true,
     },
   });
 
@@ -46,30 +42,18 @@ const SubscribeSection = () => {
     setIsSubmitting(true);
     
     try {
-      // This is where you'd integrate with your newsletter service
-      // Example with a webhook or API endpoint:
-      // const response = await fetch('your-newsletter-endpoint', {
-      //   method: 'POST',
-      //   headers: { 'Content-Type': 'application/json' },
-      //   body: JSON.stringify(values),
-      // });
+      // Log the email that will be passed to beehiiv
+      console.log("Email to pass to beehiiv:", values.email);
       
-      // If you're using a service like Mailchimp, ConvertKit, etc.
-      // You would use their specific API endpoints here
-      
-      console.log("Newsletter subscription data:", values);
-      
-      // For now, we'll simulate a successful submission
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      // Redirect to beehiiv with the email as a query parameter
+      window.location.href = `https://rinfiggi.beehiiv.com?email=${encodeURIComponent(values.email)}`;
       
       toast({
-        title: "thanks for subscribing!",
-        description: "you'll be the first to know about new music and tour dates.",
+        title: "redirecting to newsletter signup...",
+        description: "you'll be taken to complete your subscription.",
       });
-      
-      form.reset();
     } catch (error) {
-      console.error("Subscription error:", error);
+      console.error("Redirect error:", error);
       toast({
         title: "oops! something went wrong",
         description: "please try again later",
@@ -82,7 +66,7 @@ const SubscribeSection = () => {
 
   return (
     <section className="pixel-section">
-      <h2 className="pixel-section-title">✧ subscribe ✧</h2>
+      <h2 className="pixel-section-title font-jacquard">✧ subscribe ✧</h2>
 
       <div className="max-w-md w-full text-center mx-auto mb-6">
         <p className="text-soft-pink text-sm mb-8">
@@ -91,24 +75,6 @@ const SubscribeSection = () => {
 
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-4">
-            <FormField
-              control={form.control}
-              name="name"
-              render={({ field }) => (
-                <FormItem>
-                  <FormControl>
-                    <Input
-                      placeholder="your name"
-                      className="w-full p-2 bg-dark-purple border-2 border-pixel-purple text-soft-pink"
-                      aria-label="your name"
-                      {...field}
-                    />
-                  </FormControl>
-                  <FormMessage className="text-left text-xs text-soft-pink" />
-                </FormItem>
-              )}
-            />
-            
             <FormField
               control={form.control}
               name="email"
@@ -121,25 +87,6 @@ const SubscribeSection = () => {
                       className="w-full p-2 bg-dark-purple border-2 border-pixel-purple text-soft-pink"
                       required
                       aria-label="your email address"
-                      {...field}
-                    />
-                  </FormControl>
-                  <FormMessage className="text-left text-xs text-soft-pink" />
-                </FormItem>
-              )}
-            />
-            
-            <FormField
-              control={form.control}
-              name="location"
-              render={({ field }) => (
-                <FormItem>
-                  <FormControl>
-                    <Input 
-                      placeholder="where you live?"
-                      className="w-full p-2 bg-dark-purple border-2 border-pixel-purple text-soft-pink"
-                      required
-                      aria-label="your location"
                       {...field}
                     />
                   </FormControl>
@@ -196,7 +143,7 @@ const SubscribeSection = () => {
                 className="pixel-button w-full" 
                 disabled={isSubmitting}
               >
-                {isSubmitting ? "subscribing..." : "✧ subscribe"}
+                {isSubmitting ? "redirecting..." : "✧ subscribe"}
               </Button>
             </div>
           </form>
