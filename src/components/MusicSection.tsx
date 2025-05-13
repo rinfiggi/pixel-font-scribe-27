@@ -29,7 +29,7 @@ const MusicSection = () => {
 
   return (
     <section className="pixel-section">
-      <h2 className="pixel-section-title">music ✧</h2>
+      <h2 className="pixel-section-title font-jacquard text-[34px]">music ✧</h2>
       <div className="text-soft-pink text-xs mb-6">
         <a href="#releases" className="block hover:text-pixel-purple mb-1">latest releases</a>
         <a href="#albums" className="block hover:text-pixel-purple mb-1">albums</a>

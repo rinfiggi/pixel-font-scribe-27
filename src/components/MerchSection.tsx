@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { ChevronLeft, ChevronRight, Disc, ShoppingBag } from 'lucide-react';
 
@@ -79,7 +80,7 @@ const MerchSection = () => {
 
   return (
     <section className="pixel-section">
-      <h2 className="pixel-section-title">merch</h2>
+      <h2 className="pixel-section-title font-jacquard text-[34px]">merch</h2>
 
       <div className="w-full max-w-2xl flex items-center justify-center">
         <button 

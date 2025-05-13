@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -127,7 +128,7 @@
   }
 
   .pixel-section-title {
-    @apply text-2xl md:text-3xl font-bold mb-6 text-pixel-purple;
+    @apply text-2xl md:text-3xl font-bold mb-6 text-pixel-purple font-jacquard;
   }
   
   .bg-noise {

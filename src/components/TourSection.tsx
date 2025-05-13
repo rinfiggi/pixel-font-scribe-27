@@ -12,7 +12,9 @@ const TourSection = () => {
     // Initialize widget after script has loaded
     script.onload = () => {
       if (window.BIT) {
-        window.BIT.init();
+        window.BIT.widget = window.BIT.widget || {};
+        window.BIT.widget.init = window.BIT.widget.init || function() {};
+        window.BIT.widget.init();
       }
     };
 
@@ -25,7 +27,7 @@ const TourSection = () => {
 
   return (
     <section className="pixel-section">
-      {/* Remove the h2 title */}
+      <h2 className="pixel-section-title font-jacquard text-[34px]">tour</h2>
       <div className="max-w-md w-full text-center text-soft-pink text-sm mx-auto">
         <div className="w-full">
           {/* Bandsintown Widget */}
@@ -70,10 +72,15 @@ const TourSection = () => {
                 /* Make past shows lowercase */
                 .bit-local-dates-button {
                   text-transform: lowercase !important;
+                  font-family: "Jacquard 12", serif !important;
                 }
                 /* Additional line height for better readability */
                 .bit-event-list-container {
                   line-height: 1.8;
+                }
+                /* Update font for specific elements */
+                .bit-follow-section-header-text, .bit-no-dates-text {
+                  font-family: "Jacquard 12", serif !important;
                 }
               `}
             </style>
@@ -166,7 +173,9 @@ const TourSection = () => {
 declare global {
   interface Window {
     BIT?: {
-      init: () => void;
+      widget?: {
+        init: () => void;
+      };
     };
   }
 }
