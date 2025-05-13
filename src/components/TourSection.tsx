@@ -13,7 +13,7 @@ const TourSection = () => {
     script.onload = () => {
       if (window.BIT) {
         window.BIT.widget = window.BIT.widget || {};
-        window.BIT.widget.init = window.BIT.widget.init || function() {};
+        window.BIT.widget.init = window.BIT.widget.init || function() { };
         window.BIT.widget.init();
       }
     };

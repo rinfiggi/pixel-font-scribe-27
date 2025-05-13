@@ -66,7 +66,7 @@ const SubscribeSection = () => {
 
   return (
     <section className="pixel-section">
-      <h2 className="pixel-section-title font-jacquard text-[34px]">✧ subscribe ✧</h2>
+      <h2 className="pixel-section-title font-jacquard text-[42px]">✧ subscribe ✧</h2>
 
       <div className="max-w-md w-full text-center mx-auto mb-6">
         <p className="text-soft-pink text-sm mb-8">
