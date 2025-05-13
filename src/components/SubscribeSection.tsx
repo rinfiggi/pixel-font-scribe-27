@@ -1,36 +1,83 @@
 
 import React, { useState } from 'react';
 import { toast } from "../components/ui/use-toast";
+import { Input } from "@/components/ui/input";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Button } from "@/components/ui/button";
+import { 
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage
+} from "@/components/ui/form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+
+const formSchema = z.object({
+  name: z.string().optional(),
+  email: z.string().email({ message: "please enter a valid email" }),
+  location: z.string().min(1, { message: "please enter a location" }),
+  privacyConsent: z.literal(true, {
+    errorMap: () => ({ message: "you must accept the privacy policy" }),
+  }),
+  newsletterConsent: z.boolean().optional(),
+});
+
+type SubscribeFormValues = z.infer<typeof formSchema>;
 
 const SubscribeSection = () => {
-  const [email, setEmail] = useState('');
-  const [location, setLocation] = useState('');
-  const [name, setName] = useState('');
-  const [agreedToPrivacy, setAgreedToPrivacy] = useState(false);
-  const [agreedToNewsletter, setAgreedToNewsletter] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  
+  const form = useForm<SubscribeFormValues>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      name: "",
+      email: "",
+      location: "",
+      privacyConsent: false,
+      newsletterConsent: false,
+    },
+  });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  const onSubmit = async (values: SubscribeFormValues) => {
+    setIsSubmitting(true);
     
-    if (!email || !location || !agreedToPrivacy) {
+    try {
+      // This is where you'd integrate with your newsletter service
+      // Example with a webhook or API endpoint:
+      // const response = await fetch('your-newsletter-endpoint', {
+      //   method: 'POST',
+      //   headers: { 'Content-Type': 'application/json' },
+      //   body: JSON.stringify(values),
+      // });
+      
+      // If you're using a service like Mailchimp, ConvertKit, etc.
+      // You would use their specific API endpoints here
+      
+      console.log("Newsletter subscription data:", values);
+      
+      // For now, we'll simulate a successful submission
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
       toast({
-        title: "please fill all required fields",
+        title: "thanks for subscribing!",
+        description: "you'll be the first to know about new music and tour dates.",
+      });
+      
+      form.reset();
+    } catch (error) {
+      console.error("Subscription error:", error);
+      toast({
+        title: "oops! something went wrong",
+        description: "please try again later",
         variant: "destructive",
       });
-      return;
+    } finally {
+      setIsSubmitting(false);
     }
-
-    // Subscription logic would go here
-    toast({
-      title: "thanks for subscribing!",
-      description: "you'll be the first to know about new music and tour dates.",
-    });
-
-    setEmail('');
-    setLocation('');
-    setName('');
-    setAgreedToPrivacy(false);
-    setAgreedToNewsletter(false);
   };
 
   return (
@@ -42,73 +89,118 @@ const SubscribeSection = () => {
           heyy, you can sign up for the newsletter below.
         </p>
 
-        <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-          <div>
-            <input 
-              type="text"
-              placeholder="your name"
-              className="w-full p-2 bg-dark-purple border-2 border-pixel-purple text-soft-pink"
-              aria-label="your name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
+        <Form {...form}>
+          <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-4">
+            <FormField
+              control={form.control}
+              name="name"
+              render={({ field }) => (
+                <FormItem>
+                  <FormControl>
+                    <Input
+                      placeholder="your name"
+                      className="w-full p-2 bg-dark-purple border-2 border-pixel-purple text-soft-pink"
+                      aria-label="your name"
+                      {...field}
+                    />
+                  </FormControl>
+                  <FormMessage className="text-left text-xs text-soft-pink" />
+                </FormItem>
+              )}
             />
-          </div>
-
-          <div>
-            <input 
-              type="email"
-              placeholder="email address"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="w-full p-2 bg-dark-purple border-2 border-pixel-purple text-soft-pink"
-              required
-              aria-label="your email address"
+            
+            <FormField
+              control={form.control}
+              name="email"
+              render={({ field }) => (
+                <FormItem>
+                  <FormControl>
+                    <Input 
+                      placeholder="email address"
+                      type="email"
+                      className="w-full p-2 bg-dark-purple border-2 border-pixel-purple text-soft-pink"
+                      required
+                      aria-label="your email address"
+                      {...field}
+                    />
+                  </FormControl>
+                  <FormMessage className="text-left text-xs text-soft-pink" />
+                </FormItem>
+              )}
             />
-          </div>
-
-          <div>
-            <input 
-              type="text"
-              placeholder="where you live?"
-              value={location}
-              onChange={(e) => setLocation(e.target.value)}
-              className="w-full p-2 bg-dark-purple border-2 border-pixel-purple text-soft-pink"
-              required
-              aria-label="your location"
+            
+            <FormField
+              control={form.control}
+              name="location"
+              render={({ field }) => (
+                <FormItem>
+                  <FormControl>
+                    <Input 
+                      placeholder="where you live?"
+                      className="w-full p-2 bg-dark-purple border-2 border-pixel-purple text-soft-pink"
+                      required
+                      aria-label="your location"
+                      {...field}
+                    />
+                  </FormControl>
+                  <FormMessage className="text-left text-xs text-soft-pink" />
+                </FormItem>
+              )}
             />
-          </div>
-
-          <div className="flex items-start gap-2 text-left text-xs">
-            <input 
-              type="checkbox" 
-              id="privacy"
-              checked={agreedToPrivacy}
-              onChange={() => setAgreedToPrivacy(!agreedToPrivacy)}
-              className="mt-1"
-              required
+            
+            <FormField
+              control={form.control}
+              name="privacyConsent"
+              render={({ field }) => (
+                <FormItem className="flex items-start gap-2 text-left">
+                  <FormControl>
+                    <Checkbox 
+                      id="privacy"
+                      checked={field.value}
+                      onCheckedChange={field.onChange}
+                      required
+                      className="mt-1 bg-dark-purple border-pixel-purple text-soft-pink"
+                    />
+                  </FormControl>
+                  <FormLabel htmlFor="privacy" className="text-soft-pink text-xs font-normal cursor-pointer">
+                    i consent to the processing of my personal data according to the privacy policy
+                  </FormLabel>
+                  <FormMessage className="text-xs text-soft-pink" />
+                </FormItem>
+              )}
             />
-            <label htmlFor="privacy" className="text-soft-pink">
-              i consent to the processing of my personal data according to the privacy policy
-            </label>
-          </div>
-
-          <div className="flex items-start gap-2 text-left text-xs">
-            <input 
-              type="checkbox" 
-              id="newsletter"
-              checked={agreedToNewsletter}
-              onChange={() => setAgreedToNewsletter(!agreedToNewsletter)}
-              className="mt-1"
+            
+            <FormField
+              control={form.control}
+              name="newsletterConsent"
+              render={({ field }) => (
+                <FormItem className="flex items-start gap-2 text-left">
+                  <FormControl>
+                    <Checkbox 
+                      id="newsletter"
+                      checked={field.value}
+                      onCheckedChange={field.onChange}
+                      className="mt-1 bg-dark-purple border-pixel-purple text-soft-pink"
+                    />
+                  </FormControl>
+                  <FormLabel htmlFor="newsletter" className="text-soft-pink text-xs font-normal cursor-pointer">
+                    i want to receive news about upcoming tour dates and music releases
+                  </FormLabel>
+                </FormItem>
+              )}
             />
-            <label htmlFor="newsletter" className="text-soft-pink">
-              i want to receive news about upcoming tour dates and music releases
-            </label>
-          </div>
 
-          <div className="mt-4">
-            <button type="submit" className="pixel-button w-full">✧ subscribe</button>
-          </div>
-        </form>
+            <div className="mt-4">
+              <Button 
+                type="submit" 
+                className="pixel-button w-full" 
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? "subscribing..." : "✧ subscribe"}
+              </Button>
+            </div>
+          </form>
+        </Form>
       </div>
     </section>
   );
