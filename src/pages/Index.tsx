@@ -14,20 +14,20 @@ const Index = () => {
       <div className="max-w-6xl mx-auto pt-10">
         <Header />
         
-        <main className="lg:grid lg:grid-cols-2 lg:gap-8">
-          <section id="tour" className="lg:col-span-2 lg:order-1">
+        <main className="lg:grid lg:grid-cols-12 lg:gap-10">
+          <section id="tour" className="lg:col-span-12 lg:order-1">
             <TourSection />
           </section>
           
-          <section id="music" className="lg:col-span-1 lg:order-2">
+          <section id="music" className="lg:col-span-6 lg:order-2">
             <MusicSection />
           </section>
           
-          <section id="merch" className="lg:col-span-1 lg:order-3">
+          <section id="merch" className="lg:col-span-6 lg:order-3">
             <MerchSection />
           </section>
           
-          <section id="newsletter" className="lg:col-span-2 lg:order-4">
+          <section id="newsletter" className="lg:col-span-12 lg:order-4">
             <SubscribeSection />
           </section>
         </main>

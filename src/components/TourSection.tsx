@@ -36,9 +36,9 @@ const TourSection = () => {
                   background: transparent;
                   font-family: "Press Start 2P", cursive;
                   color: #ffc1cb;
-                  font-size: 15px;
+                  font-size: 20px;
                   text-transform: lowercase;
-                  line-height: 2;
+                  line-height: 2.5;
                   transition: all 0.3s ease;
                 }
                 .bit-table {
@@ -46,7 +46,7 @@ const TourSection = () => {
                   transition: all 0.3s ease;
                 }
                 .bit-table td {
-                  padding: 12px 8px;
+                  padding: 14px 10px;
                   vertical-align: middle;
                   transition: all 0.2s ease;
                 }
@@ -87,6 +87,8 @@ const TourSection = () => {
                   font-family: "Jacquard 12", serif !important;
                   font-size: 22px !important;
                   transition: color 0.3s ease, transform 0.2s ease;
+                  margin: 12px 0;
+                  padding: 8px 0;
                 }
                 .bit-local-dates-button:hover {
                   color: #ffc1cb !important;
@@ -94,7 +96,8 @@ const TourSection = () => {
                 }
                 /* Additional line height for better readability */
                 .bit-event-list-container {
-                  line-height: 1.8;
+                  line-height: 2.5;
+                  letter-spacing: 0.05em;
                 }
                 /* Update font for specific elements */
                 .bit-follow-section-header-text, .bit-no-dates-text {
@@ -104,10 +107,21 @@ const TourSection = () => {
                 /* Add animation to ticket buttons */
                 .bit-button {
                   transition: all 0.3s ease !important;
+                  margin: 5px 0 !important;
+                  padding: 6px 12px !important;
                 }
                 .bit-button:hover {
                   transform: translateY(-2px) !important;
                   box-shadow: 0 4px 8px rgba(155, 135, 245, 0.3) !important;
+                }
+                /* Add spacing between rows */
+                .bit-event-row td {
+                  padding-top: 16px !important;
+                  padding-bottom: 16px !important;
+                }
+                /* Add spacing between content */
+                .bit-venue, .bit-date, .bit-location {
+                  margin: 8px 0 !important;
                 }
               `}
             </style>

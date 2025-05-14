@@ -23,13 +23,13 @@ const MusicSection = () => {
     <section className="pixel-section">
       <h2 className="pixel-section-title font-jacquard text-[52px] animate-pulse">music ✧</h2>
       
-      <div className="w-full max-w-2xl">
-        <Carousel className="relative">
+      <div className="w-full max-w-2xl pb-6">
+        <Carousel className="relative px-10">
           <CarouselContent>
             {tracks.map((track) => (
-              <CarouselItem key={track.id} className="transition-all duration-300 hover:scale-105">
-                <div className="flex flex-col items-center">
-                  <div className="w-40 h-40 bg-pixel-purple mb-4 flex items-center justify-center transform transition-all duration-300 hover:rotate-3 hover:shadow-[0_0_15px_rgba(155,135,245,0.5)]">
+              <CarouselItem key={track.id} className="transition-all duration-300 py-4 px-2">
+                <div className="flex flex-col items-center overflow-visible h-full">
+                  <div className="w-40 h-40 bg-pixel-purple mb-4 flex items-center justify-center shadow-[0_0_15px_rgba(155,135,245,0.3)]">
                     <Disc size={32} className="text-dark-purple animate-spin-slow" />
                   </div>
                   
@@ -53,7 +53,7 @@ const MusicSection = () => {
         </Carousel>
       </div>
       
-      <div className="mt-12 py-4 border-t border-b border-pixel-purple/30 text-center max-w-md mx-auto hover:border-pixel-purple/60 transition-all duration-300">
+      <div className="mt-6 py-4 border-t border-b border-pixel-purple/30 text-center max-w-md mx-auto hover:border-pixel-purple/60 transition-all duration-300">
         <p className="text-soft-pink text-sm mb-3 px-4">
           stream or buy "voicemail + the lost transmissions"
         </p>

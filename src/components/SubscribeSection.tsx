@@ -138,13 +138,13 @@ const SubscribeSection = () => {
             />
 
             <div className="mt-4">
-              <Button 
+              <button 
                 type="submit" 
-                className="pixel-button w-full transition-all duration-300 hover:scale-105" 
+                className="pixel-button w-full transition-all duration-300" 
                 disabled={isSubmitting}
               >
                 {isSubmitting ? "redirecting..." : "✧ subscribe"}
-              </Button>
+              </button>
             </div>
           </form>
         </Form>

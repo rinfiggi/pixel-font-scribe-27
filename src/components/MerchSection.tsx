@@ -73,13 +73,13 @@ const MerchSection = () => {
     <section className="pixel-section">
       <h2 className="pixel-section-title font-jacquard text-[52px] animate-pulse">merch</h2>
 
-      <div className="w-full max-w-2xl">
-        <Carousel className="relative">
+      <div className="w-full max-w-2xl pb-6">
+        <Carousel className="relative px-10">
           <CarouselContent>
             {sortedItems.map((item) => (
-              <CarouselItem key={item.id} className="transition-all duration-300 hover:scale-105">
-                <div className="flex flex-col items-center">
-                  <div className="w-48 h-48 mb-4 flex flex-col items-center justify-center transform transition-all duration-300 hover:rotate-3 hover:shadow-[0_0_15px_rgba(155,135,245,0.5)]">
+              <CarouselItem key={item.id} className="transition-all duration-300 py-4 px-2">
+                <div className="flex flex-col items-center overflow-visible h-full">
+                  <div className="w-48 h-48 mb-4 flex flex-col items-center justify-center shadow-[0_0_15px_rgba(155,135,245,0.3)]">
                     {renderItemIcon(item.type)}
                     <img 
                       src={item.image} 
@@ -93,7 +93,7 @@ const MerchSection = () => {
                   <p className="text-pixel-purple text-center mb-4 animate-pulse">
                     {item.price}
                   </p>
-                  <button className="pixel-button transition-all hover:scale-105">buy ✧</button>
+                  <button className="pixel-button transition-all">buy ✧</button>
                 </div>
               </CarouselItem>
             ))}
