@@ -1,6 +1,7 @@
 
 import React from 'react';
-import { ChevronLeft, ChevronRight, Disc, ShoppingBag } from 'lucide-react';
+import { Disc, ShoppingBag } from 'lucide-react';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 
 interface MerchItem {
   id: number;
@@ -58,16 +59,6 @@ const MerchSection = () => {
   // Sort items by priority
   const sortedItems = [...merchItems].sort((a, b) => a.priority - b.priority);
 
-  const [currentItem, setCurrentItem] = React.useState(0);
-
-  const prevItem = () => {
-    setCurrentItem(curr => (curr - 1 + sortedItems.length) % sortedItems.length);
-  };
-  
-  const nextItem = () => {
-    setCurrentItem(curr => (curr + 1) % sortedItems.length);
-  };
-
   const renderItemIcon = (type: string) => {
     switch(type) {
       case 'vinyl':
@@ -80,42 +71,36 @@ const MerchSection = () => {
 
   return (
     <section className="pixel-section">
-      <h2 className="pixel-section-title font-jacquard text-[42px]">merch</h2>
+      <h2 className="pixel-section-title font-jacquard text-[52px]">merch</h2>
 
-      <div className="w-full max-w-2xl flex items-center justify-center">
-        <button 
-          onClick={prevItem}
-          className="p-4 text-pixel-purple hover:text-soft-pink"
-          aria-label="previous merch item"
-        >
-          <ChevronLeft size={32} />
-        </button>
-        
-        <div className="flex-grow flex flex-col items-center max-w-xs">
-          <div className="w-48 h-48 mb-4 flex flex-col items-center justify-center">
-            {renderItemIcon(sortedItems[currentItem].type)}
-            <img 
-              src={sortedItems[currentItem].image} 
-              alt={`${sortedItems[currentItem].name} merch`} 
-              className="w-full h-full object-contain"
-            />
-          </div>
-          <p className="text-soft-pink text-center mb-2 whitespace-pre-line">
-            {sortedItems[currentItem].name}
-          </p>
-          <p className="text-pixel-purple text-center mb-4">
-            {sortedItems[currentItem].price}
-          </p>
-          <button className="pixel-button">buy ✧</button>
-        </div>
-        
-        <button 
-          onClick={nextItem}
-          className="p-4 text-pixel-purple hover:text-soft-pink"
-          aria-label="next merch item"
-        >
-          <ChevronRight size={32} />
-        </button>
+      <div className="w-full max-w-2xl">
+        <Carousel className="relative">
+          <CarouselContent>
+            {sortedItems.map((item) => (
+              <CarouselItem key={item.id}>
+                <div className="flex flex-col items-center">
+                  <div className="w-48 h-48 mb-4 flex flex-col items-center justify-center">
+                    {renderItemIcon(item.type)}
+                    <img 
+                      src={item.image} 
+                      alt={`${item.name} merch`} 
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                  <p className="text-soft-pink text-center mb-2 whitespace-pre-line">
+                    {item.name}
+                  </p>
+                  <p className="text-pixel-purple text-center mb-4">
+                    {item.price}
+                  </p>
+                  <button className="pixel-button">buy ✧</button>
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-transparent border-none hover:bg-transparent text-pixel-purple hover:text-soft-pink shadow-none" />
+          <CarouselNext className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-transparent border-none hover:bg-transparent text-pixel-purple hover:text-soft-pink shadow-none" />
+        </Carousel>
       </div>
     </section>
   );
