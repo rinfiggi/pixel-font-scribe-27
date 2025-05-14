@@ -7,6 +7,7 @@ import MerchSection from '../components/MerchSection';
 import SubscribeSection from '../components/SubscribeSection';
 import Footer from '../components/Footer';
 import CookieBanner from '../components/CookieBanner';
+import ContactInfo from '../components/ContactInfo';
 
 const Index = () => {
   return (
@@ -14,21 +15,27 @@ const Index = () => {
       <div className="max-w-6xl mx-auto pt-10">
         <Header />
         
-        <main className="lg:grid lg:grid-cols-12 lg:gap-10">
-          <section id="tour" className="lg:col-span-12 lg:order-1">
+        <main className="flex flex-col gap-16">
+          <section id="tour">
             <TourSection />
           </section>
           
-          <section id="music" className="lg:col-span-6 lg:order-2">
-            <MusicSection />
-          </section>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+            <section id="music">
+              <MusicSection />
+            </section>
+            
+            <section id="merch">
+              <MerchSection />
+            </section>
+          </div>
           
-          <section id="merch" className="lg:col-span-6 lg:order-3">
-            <MerchSection />
-          </section>
-          
-          <section id="newsletter" className="lg:col-span-12 lg:order-4">
+          <section id="newsletter">
             <SubscribeSection />
+          </section>
+          
+          <section id="contact">
+            <ContactInfo />
           </section>
         </main>
         
