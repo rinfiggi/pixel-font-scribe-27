@@ -11,9 +11,7 @@ const TourSection = () => {
 
     // Initialize widget after script has loaded
     script.onload = () => {
-      if (window.BIT) {
-        window.BIT.widget = window.BIT.widget || {};
-        window.BIT.widget.init = window.BIT.widget.init || function() { return; };
+      if (window.BIT && window.BIT.widget) {
         window.BIT.widget.init();
       }
     };
@@ -28,9 +26,9 @@ const TourSection = () => {
   return (
     <section className="pixel-section">
       <div className="max-w-md w-full text-center text-soft-pink text-xs mx-auto">
-        <div className="w-full">
+        <div className="w-full animate-fade-in">
           {/* Bandsintown Widget */}
-          <div className="bit-widget-container">
+          <div className="bit-widget-container hover:scale-[1.01] transition-transform duration-300">
             <style>
               {`
                 .bit-html-export {
@@ -38,20 +36,35 @@ const TourSection = () => {
                   background: transparent;
                   font-family: "Press Start 2P", cursive;
                   color: #ffc1cb;
-                  font-size: 10px;
+                  font-size: 15px;
                   text-transform: lowercase;
                   line-height: 2;
+                  transition: all 0.3s ease;
                 }
                 .bit-table {
                   width: 100%;
+                  transition: all 0.3s ease;
                 }
                 .bit-table td {
-                  padding: 8px 8px;
+                  padding: 12px 8px;
                   vertical-align: middle;
+                  transition: all 0.2s ease;
+                }
+                .bit-table tr {
+                  transition: background-color 0.3s ease, transform 0.2s ease;
+                }
+                .bit-table tr:hover {
+                  background-color: rgba(155, 135, 245, 0.2) !important;
+                  transform: translateY(-2px);
                 }
                 .bit-table a {
                   color: #9b87f5;
                   text-decoration: none;
+                  transition: all 0.3s ease;
+                }
+                .bit-table a:hover {
+                  color: #ffc1cb;
+                  transform: translateY(-1px);
                 }
                 .bit-table tr:nth-of-type(2n) {
                   background: rgba(155, 135, 245, 0.1);
@@ -72,7 +85,12 @@ const TourSection = () => {
                 .bit-local-dates-button {
                   text-transform: lowercase !important;
                   font-family: "Jacquard 12", serif !important;
-                  font-size: 16px !important;
+                  font-size: 22px !important;
+                  transition: color 0.3s ease, transform 0.2s ease;
+                }
+                .bit-local-dates-button:hover {
+                  color: #ffc1cb !important;
+                  transform: translateY(-1px);
                 }
                 /* Additional line height for better readability */
                 .bit-event-list-container {
@@ -81,7 +99,15 @@ const TourSection = () => {
                 /* Update font for specific elements */
                 .bit-follow-section-header-text, .bit-no-dates-text {
                   font-family: "Jacquard 12", serif !important;
-                  font-size: 16px !important;
+                  font-size: 22px !important;
+                }
+                /* Add animation to ticket buttons */
+                .bit-button {
+                  transition: all 0.3s ease !important;
+                }
+                .bit-button:hover {
+                  transform: translateY(-2px) !important;
+                  box-shadow: 0 4px 8px rgba(155, 135, 245, 0.3) !important;
                 }
               `}
             </style>

@@ -66,10 +66,10 @@ const SubscribeSection = () => {
 
   return (
     <section className="pixel-section">
-      <h2 className="pixel-section-title font-jacquard text-[42px]">✧ subscribe ✧</h2>
+      <h2 className="pixel-section-title font-jacquard text-[52px] animate-pulse">✧ subscribe ✧</h2>
 
-      <div className="max-w-md w-full text-center mx-auto mb-6">
-        <p className="text-soft-pink text-sm mb-8">
+      <div className="max-w-md w-full text-center mx-auto mb-6 transform transition-all duration-500 hover:scale-[1.01]">
+        <p className="text-soft-pink text-sm mb-8 animate-fade-in">
           heyy, you can sign up for the newsletter below.
         </p>
 
@@ -79,12 +79,12 @@ const SubscribeSection = () => {
               control={form.control}
               name="email"
               render={({ field }) => (
-                <FormItem>
+                <FormItem className="transition-all duration-300 hover:translate-y-[-2px]">
                   <FormControl>
                     <Input 
                       placeholder="email address"
                       type="email"
-                      className="w-full p-2 bg-dark-purple border-2 border-pixel-purple text-soft-pink"
+                      className="w-full p-2 bg-dark-purple border-2 border-pixel-purple text-soft-pink transition-all duration-300 focus:border-soft-pink focus:ring-soft-pink"
                       required
                       aria-label="your email address"
                       {...field}
@@ -99,14 +99,14 @@ const SubscribeSection = () => {
               control={form.control}
               name="privacyConsent"
               render={({ field }) => (
-                <FormItem className="flex items-start gap-2 text-left">
+                <FormItem className="flex items-start gap-2 text-left transition-all duration-300 hover:translate-y-[-2px]">
                   <FormControl>
                     <Checkbox 
                       id="privacy"
                       checked={field.value}
                       onCheckedChange={field.onChange}
                       required
-                      className="mt-1 bg-dark-purple border-pixel-purple text-soft-pink"
+                      className="mt-1 bg-dark-purple border-pixel-purple data-[state=checked]:bg-pixel-purple data-[state=checked]:text-soft-pink"
                     />
                   </FormControl>
                   <FormLabel htmlFor="privacy" className="text-soft-pink text-xs font-normal cursor-pointer">
@@ -121,13 +121,13 @@ const SubscribeSection = () => {
               control={form.control}
               name="newsletterConsent"
               render={({ field }) => (
-                <FormItem className="flex items-start gap-2 text-left">
+                <FormItem className="flex items-start gap-2 text-left transition-all duration-300 hover:translate-y-[-2px]">
                   <FormControl>
                     <Checkbox 
                       id="newsletter"
                       checked={field.value}
                       onCheckedChange={field.onChange}
-                      className="mt-1 bg-dark-purple border-pixel-purple text-soft-pink"
+                      className="mt-1 bg-dark-purple border-pixel-purple data-[state=checked]:bg-pixel-purple data-[state=checked]:text-soft-pink"
                     />
                   </FormControl>
                   <FormLabel htmlFor="newsletter" className="text-soft-pink text-xs font-normal cursor-pointer">
@@ -140,7 +140,7 @@ const SubscribeSection = () => {
             <div className="mt-4">
               <Button 
                 type="submit" 
-                className="pixel-button w-full" 
+                className="pixel-button w-full transition-all duration-300 hover:scale-105" 
                 disabled={isSubmitting}
               >
                 {isSubmitting ? "redirecting..." : "✧ subscribe"}

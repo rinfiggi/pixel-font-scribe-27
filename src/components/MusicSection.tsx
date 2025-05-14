@@ -1,7 +1,8 @@
 
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Headphones, ExternalLink, Disc } from 'lucide-react';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import { Button } from "@/components/ui/button";
 
 interface MusicTrack {
   id: number;
@@ -20,16 +21,16 @@ const MusicSection = () => {
 
   return (
     <section className="pixel-section">
-      <h2 className="pixel-section-title font-jacquard text-[52px]">music ✧</h2>
+      <h2 className="pixel-section-title font-jacquard text-[52px] animate-pulse">music ✧</h2>
       
       <div className="w-full max-w-2xl">
         <Carousel className="relative">
           <CarouselContent>
             {tracks.map((track) => (
-              <CarouselItem key={track.id}>
+              <CarouselItem key={track.id} className="transition-all duration-300 hover:scale-105">
                 <div className="flex flex-col items-center">
-                  <div className="w-40 h-40 bg-pixel-purple mb-4 flex items-center justify-center">
-                    <Disc size={32} className="text-dark-purple" />
+                  <div className="w-40 h-40 bg-pixel-purple mb-4 flex items-center justify-center transform transition-all duration-300 hover:rotate-3 hover:shadow-[0_0_15px_rgba(155,135,245,0.5)]">
+                    <Disc size={32} className="text-dark-purple animate-spin-slow" />
                   </div>
                   
                   <h3 className="text-soft-pink text-center mb-1">
@@ -40,19 +41,19 @@ const MusicSection = () => {
                      track.type === 'single' ? 'single' : 'demo'}
                   </p>
                   <div className="flex gap-4 mt-3">
-                    <a href="#listen" className="text-xs text-pixel-purple underline hover:text-soft-pink">✧ listen</a>
-                    <a href="#buy" className="text-xs text-pixel-purple underline hover:text-soft-pink">✧ buy</a>
+                    <button className="pixel-button text-xs px-3 py-1">✧ listen</button>
+                    <button className="pixel-button text-xs px-3 py-1">✧ buy</button>
                   </div>
                 </div>
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-transparent border-none hover:bg-transparent text-pixel-purple hover:text-soft-pink shadow-none" />
-          <CarouselNext className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-transparent border-none hover:bg-transparent text-pixel-purple hover:text-soft-pink shadow-none" />
+          <CarouselPrevious className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-transparent border-none hover:bg-transparent text-pixel-purple hover:text-soft-pink shadow-none opacity-100 transition-transform hover:scale-110" />
+          <CarouselNext className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-transparent border-none hover:bg-transparent text-pixel-purple hover:text-soft-pink shadow-none opacity-100 transition-transform hover:scale-110" />
         </Carousel>
       </div>
       
-      <div className="mt-12 py-4 border-t border-b border-pixel-purple/30 text-center max-w-md mx-auto">
+      <div className="mt-12 py-4 border-t border-b border-pixel-purple/30 text-center max-w-md mx-auto hover:border-pixel-purple/60 transition-all duration-300">
         <p className="text-soft-pink text-sm mb-3 px-4">
           stream or buy "voicemail + the lost transmissions"
         </p>
@@ -61,19 +62,23 @@ const MusicSection = () => {
             href="https://open.spotify.com" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1 text-pixel-purple hover:text-soft-pink"
+            className="inline-flex items-center gap-1 text-pixel-purple hover:text-soft-pink transition-all duration-300 hover:-translate-y-1"
           >
-            <Headphones size={14} />
-            <span className="text-xs">stream</span>
+            <button className="pixel-button inline-flex items-center gap-2">
+              <Headphones size={14} />
+              <span className="text-xs">stream</span>
+            </button>
           </a>
           <a 
             href="https://bandcamp.com" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1 text-pixel-purple hover:text-soft-pink"
+            className="inline-flex items-center gap-1 text-pixel-purple hover:text-soft-pink transition-all duration-300 hover:-translate-y-1"
           >
-            <ExternalLink size={14} />
-            <span className="text-xs">buy</span>
+            <button className="pixel-button inline-flex items-center gap-2">
+              <ExternalLink size={14} />
+              <span className="text-xs">buy</span>
+            </button>
           </a>
         </div>
       </div>

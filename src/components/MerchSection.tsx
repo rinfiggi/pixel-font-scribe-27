@@ -63,23 +63,23 @@ const MerchSection = () => {
     switch(type) {
       case 'vinyl':
       case 'cd':
-        return <Disc size={24} className="mb-2 text-soft-pink" />;
+        return <Disc size={24} className="mb-2 text-soft-pink animate-spin-slow" />;
       default:
-        return <ShoppingBag size={24} className="mb-2 text-soft-pink" />;
+        return <ShoppingBag size={24} className="mb-2 text-soft-pink animate-pulse" />;
     }
   };
 
   return (
     <section className="pixel-section">
-      <h2 className="pixel-section-title font-jacquard text-[52px]">merch</h2>
+      <h2 className="pixel-section-title font-jacquard text-[52px] animate-pulse">merch</h2>
 
       <div className="w-full max-w-2xl">
         <Carousel className="relative">
           <CarouselContent>
             {sortedItems.map((item) => (
-              <CarouselItem key={item.id}>
+              <CarouselItem key={item.id} className="transition-all duration-300 hover:scale-105">
                 <div className="flex flex-col items-center">
-                  <div className="w-48 h-48 mb-4 flex flex-col items-center justify-center">
+                  <div className="w-48 h-48 mb-4 flex flex-col items-center justify-center transform transition-all duration-300 hover:rotate-3 hover:shadow-[0_0_15px_rgba(155,135,245,0.5)]">
                     {renderItemIcon(item.type)}
                     <img 
                       src={item.image} 
@@ -90,16 +90,16 @@ const MerchSection = () => {
                   <p className="text-soft-pink text-center mb-2 whitespace-pre-line">
                     {item.name}
                   </p>
-                  <p className="text-pixel-purple text-center mb-4">
+                  <p className="text-pixel-purple text-center mb-4 animate-pulse">
                     {item.price}
                   </p>
-                  <button className="pixel-button">buy ✧</button>
+                  <button className="pixel-button transition-all hover:scale-105">buy ✧</button>
                 </div>
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-transparent border-none hover:bg-transparent text-pixel-purple hover:text-soft-pink shadow-none" />
-          <CarouselNext className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-transparent border-none hover:bg-transparent text-pixel-purple hover:text-soft-pink shadow-none" />
+          <CarouselPrevious className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-transparent border-none hover:bg-transparent text-pixel-purple hover:text-soft-pink shadow-none opacity-100 transition-transform hover:scale-110" />
+          <CarouselNext className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-transparent border-none hover:bg-transparent text-pixel-purple hover:text-soft-pink shadow-none opacity-100 transition-transform hover:scale-110" />
         </Carousel>
       </div>
     </section>
