@@ -79,7 +79,7 @@ const MerchSection = () => {
             {sortedItems.map((item) => (
               <CarouselItem key={item.id} className="transition-all duration-300 py-4 px-2">
                 <div className="flex flex-col items-center overflow-visible h-full">
-                  <div className="w-48 h-48 mb-4 flex flex-col items-center justify-center shadow-[0_0_15px_rgba(155,135,245,0.3)]">
+                  <div className="w-48 h-48 mb-4 flex flex-col items-center justify-center">
                     {renderItemIcon(item.type)}
                     <img 
                       src={item.image} 

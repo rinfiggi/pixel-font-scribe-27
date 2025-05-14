@@ -21,7 +21,7 @@ const formSchema = z.object({
   privacyConsent: z.literal(true, {
     errorMap: () => ({ message: "you must accept the privacy policy" }),
   }),
-  newsletterConsent: z.boolean().default(true),
+  newsletterConsent: z.boolean().default(false),
 });
 
 type SubscribeFormValues = z.infer<typeof formSchema>;
@@ -33,8 +33,8 @@ const SubscribeSection = () => {
     resolver: zodResolver(formSchema),
     defaultValues: {
       email: "",
-      privacyConsent: true,
-      newsletterConsent: true,
+      privacyConsent: false,
+      newsletterConsent: false,
     },
   });
 

@@ -34,11 +34,11 @@ const TourSection = () => {
                 .bit-html-export {
                   width: 100%;
                   background: transparent;
-                  font-family: "Press Start 2P", cursive;
+                  font-family: "Jacquard 12", serif;
                   color: #ffc1cb;
                   font-size: 20px;
                   text-transform: lowercase;
-                  line-height: 2.5;
+                  line-height: 3;
                   transition: all 0.3s ease;
                 }
                 .bit-table {
@@ -96,7 +96,7 @@ const TourSection = () => {
                 }
                 /* Additional line height for better readability */
                 .bit-event-list-container {
-                  line-height: 2.5;
+                  line-height: 3;
                   letter-spacing: 0.05em;
                 }
                 /* Update font for specific elements */
@@ -132,7 +132,7 @@ const TourSection = () => {
               data-background-color="rgba(19, 18, 26, 0.8)"
               data-separator-color="rgba(155, 135, 245, 0.3)"
               data-text-color="rgba(255, 193, 203, 1)"
-              data-font="Press Start 2P"
+              data-font="Jacquard 12"
               data-auto-style="false"
               data-button-label-capitalization="lowercase"
               data-header-capitalization="lowercase"
