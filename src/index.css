@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -93,7 +92,7 @@
     @apply bg-dark-purple text-foreground font-pixel;
     background-image: 
       linear-gradient(to bottom, rgba(26, 31, 44, 0.7), rgba(26, 31, 44, 0.7)),
-      url("/lovable-uploads/a6b4188b-421d-4732-9bce-e885366de633.png");
+      url("/lovable-uploads/293fdc7e-5010-4a9d-91cd-d5aa304b1539.png");
     background-size: cover;
     background-attachment: fixed;
     filter: invert(1);

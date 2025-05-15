@@ -12,7 +12,7 @@ const BandsintownWidgetStyles = () => {
           color: #ffc1cb;
           font-size: 20px;
           text-transform: lowercase;
-          line-height: 1.8; /* Increased from 1.2 */
+          line-height: 1.2;
           transition: all 0.3s ease;
         }
         .bit-table {
@@ -20,7 +20,7 @@ const BandsintownWidgetStyles = () => {
           transition: all 0.3s ease;
         }
         .bit-table td {
-          padding: 16px 12px; /* Increased padding */
+          padding: 14px 10px;
           vertical-align: middle;
           transition: all 0.2s ease;
         }
@@ -61,8 +61,8 @@ const BandsintownWidgetStyles = () => {
           font-family: "Jacquard 12", serif !important;
           font-size: 22px !important;
           transition: color 0.3s ease, transform 0.2s ease;
-          margin: 18px 0; /* Increased margin */
-          padding: 10px 0; /* Increased padding */
+          margin: 12px 0;
+          padding: 8px 0;
         }
         .bit-local-dates-button:hover {
           color: #ffc1cb !important;
@@ -70,20 +70,19 @@ const BandsintownWidgetStyles = () => {
         }
         /* Additional line height for better readability */
         .bit-event-list-container {
-          line-height: 1.8; /* Increased from 1.2 */
-          letter-spacing: 0.08em; /* Increased letter spacing */
+          line-height: 1.2;
+          letter-spacing: 0.05em;
         }
         /* Update font for specific elements */
         .bit-follow-section-header-text, .bit-no-dates-text {
           font-family: "Jacquard 12", serif !important;
           font-size: 22px !important;
-          margin-bottom: 12px; /* Added margin */
         }
         /* Add animation to ticket buttons */
         .bit-button {
           transition: all 0.3s ease !important;
-          margin: 8px 0 !important; /* Increased margin */
-          padding: 8px 14px !important; /* Increased padding */
+          margin: 5px 0 !important;
+          padding: 6px 12px !important;
         }
         .bit-button:hover {
           transform: translateY(-2px) !important;
@@ -91,13 +90,12 @@ const BandsintownWidgetStyles = () => {
         }
         /* Add spacing between rows */
         .bit-event-row td {
-          padding-top: 20px !important; /* Increased padding */
-          padding-bottom: 20px !important; /* Increased padding */
+          padding-top: 16px !important;
+          padding-bottom: 16px !important;
         }
         /* Add spacing between content */
         .bit-venue, .bit-date, .bit-location {
-          margin: 12px 0 !important; /* Increased margin */
-          line-height: 1.6 !important; /* Added line height */
+          margin: 8px 0 !important;
         }
       `}
     </style>
