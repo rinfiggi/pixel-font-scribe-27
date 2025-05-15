@@ -5,7 +5,7 @@ import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Input } from './ui/input';
 import { Button } from './ui/button';
-import { EnvelopeOpen } from 'lucide-react';
+import { Mail } from 'lucide-react';
 import { useToast } from "@/hooks/use-toast";
 import { Sparkles } from 'lucide-react';
 
@@ -71,7 +71,7 @@ const SubscribeSection = () => {
                 </div>
               ) : (
                 <div className="flex items-center gap-2">
-                  <EnvelopeOpen size={16} />
+                  <Mail size={16} />
                   <span>Subscribe</span>
                 </div>
               )}
