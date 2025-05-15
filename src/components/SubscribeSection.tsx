@@ -1,153 +1,96 @@
 
 import React, { useState } from 'react';
-import { toast } from "../components/ui/use-toast";
-import { Input } from "@/components/ui/input";
-import { Checkbox } from "@/components/ui/checkbox";
-import { Button } from "@/components/ui/button";
-import { 
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage
-} from "@/components/ui/form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
+import { useForm } from 'react-hook-form';
+import { z } from 'zod';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { Input } from './ui/input';
+import { Button } from './ui/button';
+import { EnvelopeOpen } from 'lucide-react';
+import { useToast } from "@/hooks/use-toast";
+import { Sparkles } from 'lucide-react';
 
 const formSchema = z.object({
-  email: z.string().email({ message: "please enter a valid email" }),
-  privacyConsent: z.literal(true, {
-    errorMap: () => ({ message: "you must accept the privacy policy" }),
-  }),
-  newsletterConsent: z.boolean().default(false),
+  email: z.string().email('Please enter a valid email')
 });
 
-type SubscribeFormValues = z.infer<typeof formSchema>;
+type FormData = z.infer<typeof formSchema>;
 
 const SubscribeSection = () => {
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  
-  const form = useForm<SubscribeFormValues>({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      email: "",
-      privacyConsent: false,
-      newsletterConsent: false,
-    },
+  const { toast } = useToast();
+  const [loading, setLoading] = useState(false);
+  const { register, handleSubmit, reset, formState: { errors } } = useForm<FormData>({
+    resolver: zodResolver(formSchema)
   });
 
-  const onSubmit = async (values: SubscribeFormValues) => {
-    setIsSubmitting(true);
+  const onSubmit = async (data: FormData) => {
+    setLoading(true);
     
-    try {
-      // Log the email that will be passed to beehiiv
-      console.log("Email to pass to beehiiv:", values.email);
-      
-      // Redirect to beehiiv with the email as a query parameter
-      window.location.href = `https://rinfiggi.beehiiv.com?email=${encodeURIComponent(values.email)}`;
-      
+    // Simulate API request
+    setTimeout(() => {
+      setLoading(false);
       toast({
-        title: "redirecting to newsletter signup...",
-        description: "you'll be taken to complete your subscription.",
+        title: "Subscribed!",
+        description: `You've been added to the mailing list with ${data.email}`,
+        duration: 5000,
       });
-    } catch (error) {
-      console.error("Redirect error:", error);
-      toast({
-        title: "oops! something went wrong",
-        description: "please try again later",
-        variant: "destructive",
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
+      reset();
+    }, 1500);
   };
 
   return (
     <section className="pixel-section">
-      <h2 className="pixel-section-title font-jacquard text-[52px] animate-pulse">✧ subscribe ✧</h2>
-
-      <div className="max-w-md w-full text-center mx-auto mb-6 transform transition-all duration-500 hover:scale-[1.01]">
-        <p className="text-soft-pink text-sm mb-8 animate-fade-in">
-          heyy, you can sign up for the newsletter below.
+      <h2 className="pixel-section-title font-jacquard text-[52px] animate-pulse">stay in touch ✧</h2>
+      
+      <div className="max-w-md w-full mb-6 text-center">
+        <p className="text-soft-pink mb-6">
+          Sign up to receive updates about new releases, tour dates, and merch drops
         </p>
-
-        <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-4">
-            <FormField
-              control={form.control}
-              name="email"
-              render={({ field }) => (
-                <FormItem className="transition-all duration-300 hover:translate-y-[-2px]">
-                  <FormControl>
-                    <Input 
-                      placeholder="email address"
-                      type="email"
-                      className="w-full p-2 bg-dark-purple border-2 border-pixel-purple text-soft-pink transition-all duration-300 focus:border-soft-pink focus:ring-soft-pink"
-                      required
-                      aria-label="your email address"
-                      {...field}
-                    />
-                  </FormControl>
-                  <FormMessage className="text-left text-xs text-soft-pink" />
-                </FormItem>
+        
+        <form onSubmit={handleSubmit(onSubmit)} className="w-full">
+          <div className="flex flex-col sm:flex-row gap-4 w-full">
+            <div className="flex-1">
+              <Input
+                type="email"
+                placeholder="your email"
+                className="bg-transparent border-2 border-pixel-purple text-soft-pink h-12 w-full"
+                {...register('email')}
+              />
+              {errors.email && (
+                <div className="text-red-400 text-xs mt-1">{errors.email.message}</div>
               )}
-            />
-            
-            <FormField
-              control={form.control}
-              name="privacyConsent"
-              render={({ field }) => (
-                <FormItem className="flex items-start gap-2 text-left transition-all duration-300 hover:translate-y-[-2px]">
-                  <FormControl>
-                    <Checkbox 
-                      id="privacy"
-                      checked={field.value}
-                      onCheckedChange={field.onChange}
-                      required
-                      className="mt-1 bg-dark-purple border-pixel-purple data-[state=checked]:bg-pixel-purple data-[state=checked]:text-soft-pink"
-                    />
-                  </FormControl>
-                  <FormLabel htmlFor="privacy" className="text-soft-pink text-xs font-normal cursor-pointer">
-                    i consent to the processing of my personal data according to the privacy policy
-                  </FormLabel>
-                  <FormMessage className="text-xs text-soft-pink" />
-                </FormItem>
-              )}
-            />
-            
-            <FormField
-              control={form.control}
-              name="newsletterConsent"
-              render={({ field }) => (
-                <FormItem className="flex items-start gap-2 text-left transition-all duration-300 hover:translate-y-[-2px]">
-                  <FormControl>
-                    <Checkbox 
-                      id="newsletter"
-                      checked={field.value}
-                      onCheckedChange={field.onChange}
-                      className="mt-1 bg-dark-purple border-pixel-purple data-[state=checked]:bg-pixel-purple data-[state=checked]:text-soft-pink"
-                    />
-                  </FormControl>
-                  <FormLabel htmlFor="newsletter" className="text-soft-pink text-xs font-normal cursor-pointer">
-                    i want to receive news about upcoming tour dates and music releases
-                  </FormLabel>
-                </FormItem>
-              )}
-            />
-
-            <div className="mt-4">
-              <button 
-                type="submit" 
-                className="pixel-button w-full transition-all duration-300" 
-                disabled={isSubmitting}
-              >
-                {isSubmitting ? "redirecting..." : "✧ subscribe"}
-              </button>
             </div>
-          </form>
-        </Form>
+            <Button 
+              type="submit" 
+              className="pixel-button !border-2 !border-black h-12 min-w-[150px] transition-all"
+              disabled={loading}
+            >
+              {loading ? (
+                <div className="flex items-center gap-2">
+                  <div className="animate-spin h-4 w-4 border-2 border-current border-t-transparent rounded-full"></div>
+                  <span>Sending...</span>
+                </div>
+              ) : (
+                <div className="flex items-center gap-2">
+                  <EnvelopeOpen size={16} />
+                  <span>Subscribe</span>
+                </div>
+              )}
+            </Button>
+          </div>
+        </form>
+      </div>
+      
+      <div className="mt-8 relative">
+        <Sparkles className="text-pixel-purple animate-pulse absolute -top-4 -left-4" size={24} />
+        <div className="border-2 border-pixel-purple/50 px-6 py-4 text-center max-w-sm hover:border-pixel-purple transition-all duration-300">
+          <p className="text-soft-pink text-sm">
+            Want to book us for an event or collaborate on something cool?
+          </p>
+          <p className="text-pixel-purple font-bold mt-2">
+            hello@richard-died.com
+          </p>
+        </div>
+        <Sparkles className="text-pixel-purple animate-pulse absolute -bottom-4 -right-4" size={24} />
       </div>
     </section>
   );
