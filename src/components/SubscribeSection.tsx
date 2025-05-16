@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
@@ -8,37 +7,40 @@ import { Button } from './ui/button';
 import { Mail } from 'lucide-react';
 import { useToast } from "@/hooks/use-toast";
 import { Sparkles } from 'lucide-react';
-
 const formSchema = z.object({
   email: z.string().email('Please enter a valid email')
 });
-
 type FormData = z.infer<typeof formSchema>;
-
 const SubscribeSection = () => {
-  const { toast } = useToast();
+  const {
+    toast
+  } = useToast();
   const [loading, setLoading] = useState(false);
-  const { register, handleSubmit, reset, formState: { errors } } = useForm<FormData>({
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: {
+      errors
+    }
+  } = useForm<FormData>({
     resolver: zodResolver(formSchema)
   });
-
   const onSubmit = async (data: FormData) => {
     setLoading(true);
-    
+
     // Simulate API request
     setTimeout(() => {
       setLoading(false);
       toast({
         title: "Subscribed!",
         description: `You've been added to the mailing list with ${data.email}`,
-        duration: 5000,
+        duration: 5000
       });
       reset();
     }, 1500);
   };
-
-  return (
-    <section className="pixel-section">
+  return <section className="pixel-section">
       <h2 className="pixel-section-title font-jacquard text-[52px] animate-pulse">stay in touch ✧</h2>
       
       <div className="max-w-md w-full mb-6 text-center">
@@ -49,32 +51,17 @@ const SubscribeSection = () => {
         <form onSubmit={handleSubmit(onSubmit)} className="w-full">
           <div className="flex flex-col sm:flex-row gap-4 w-full">
             <div className="flex-1">
-              <Input
-                type="email"
-                placeholder="your email"
-                className="bg-transparent border-2 border-pixel-purple text-soft-pink h-12 w-full"
-                {...register('email')}
-              />
-              {errors.email && (
-                <div className="text-red-400 text-xs mt-1">{errors.email.message}</div>
-              )}
+              <Input type="email" placeholder="your email" className="bg-transparent border-2 border-pixel-purple text-soft-pink h-12 w-full" {...register('email')} />
+              {errors.email && <div className="text-red-400 text-xs mt-1">{errors.email.message}</div>}
             </div>
-            <Button 
-              type="submit" 
-              className="pixel-button !border-2 !border-black h-12 min-w-[150px] transition-all"
-              disabled={loading}
-            >
-              {loading ? (
-                <div className="flex items-center gap-2">
+            <Button type="submit" className="pixel-button !border-2 !border-black h-12 min-w-[150px] transition-all" disabled={loading}>
+              {loading ? <div className="flex items-center gap-2">
                   <div className="animate-spin h-4 w-4 border-2 border-current border-t-transparent rounded-full"></div>
                   <span>Sending...</span>
-                </div>
-              ) : (
-                <div className="flex items-center gap-2">
+                </div> : <div className="flex items-center gap-2">
                   <Mail size={16} />
                   <span>Subscribe</span>
-                </div>
-              )}
+                </div>}
             </Button>
           </div>
         </form>
@@ -83,17 +70,13 @@ const SubscribeSection = () => {
       <div className="mt-8 relative">
         <Sparkles className="text-pixel-purple animate-pulse absolute -top-4 -left-4" size={24} />
         <div className="border-2 border-pixel-purple/50 px-6 py-4 text-center max-w-sm hover:border-pixel-purple transition-all duration-300">
-          <p className="text-soft-pink text-sm">
-            Want to book us for an event or collaborate on something cool?
-          </p>
+          <p className="text-soft-pink text-sm">get in touch :-)</p>
           <p className="text-pixel-purple font-bold mt-2">
             hello@richard-died.com
           </p>
         </div>
         <Sparkles className="text-pixel-purple animate-pulse absolute -bottom-4 -right-4" size={24} />
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default SubscribeSection;
