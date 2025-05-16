@@ -12,7 +12,7 @@ const BandsintownWidgetStyles = () => {
           color: #ffc1cb;
           font-size: 15px;
           text-transform: lowercase;
-          line-height: 1.2;
+          line-height: 1.5;
           transition: all 0.3s ease;
         }
         .bit-table {
@@ -66,7 +66,7 @@ const BandsintownWidgetStyles = () => {
         }
         /* Additional line height for better readability */
         .bit-event-list-container {
-          line-height: 1.2;
+          line-height: 1.5;
           letter-spacing: 0.05em;
         }
         /* Update font for specific elements */
