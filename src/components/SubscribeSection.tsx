@@ -5,12 +5,12 @@ import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Input } from './ui/input';
 import { Button } from './ui/button';
-import { EnvelopeOpen } from 'lucide-react';
+import { Mail } from 'lucide-react';
 import { useToast } from "@/hooks/use-toast";
 import { Sparkles } from 'lucide-react';
 
 const formSchema = z.object({
-  email: z.string().email('please enter a valid email')
+  email: z.string().email('Please enter a valid email')
 });
 
 type FormData = z.infer<typeof formSchema>;
@@ -29,8 +29,8 @@ const SubscribeSection = () => {
     setTimeout(() => {
       setLoading(false);
       toast({
-        title: "subscribed!",
-        description: `you've been added to the mailing list with ${data.email}`,
+        title: "Subscribed!",
+        description: `You've been added to the mailing list with ${data.email}`,
         duration: 5000,
       });
       reset();
@@ -43,7 +43,7 @@ const SubscribeSection = () => {
       
       <div className="max-w-md w-full mb-6 text-center">
         <p className="text-soft-pink mb-6">
-          sign up to receive updates about new releases, tour dates, and merch drops
+          Sign up to receive updates about new releases, tour dates, and merch drops
         </p>
         
         <form onSubmit={handleSubmit(onSubmit)} className="w-full">
@@ -67,12 +67,12 @@ const SubscribeSection = () => {
               {loading ? (
                 <div className="flex items-center gap-2">
                   <div className="animate-spin h-4 w-4 border-2 border-current border-t-transparent rounded-full"></div>
-                  <span>sending...</span>
+                  <span>Sending...</span>
                 </div>
               ) : (
                 <div className="flex items-center gap-2">
-                  <EnvelopeOpen size={16} />
-                  <span>subscribe</span>
+                  <Mail size={16} />
+                  <span>Subscribe</span>
                 </div>
               )}
             </Button>
@@ -84,7 +84,10 @@ const SubscribeSection = () => {
         <Sparkles className="text-pixel-purple animate-pulse absolute -top-4 -left-4" size={24} />
         <div className="border-2 border-pixel-purple/50 px-6 py-4 text-center max-w-sm hover:border-pixel-purple transition-all duration-300">
           <p className="text-soft-pink text-sm">
-            get in touch at mgmt@rinfiggi.online
+            Want to book us for an event or collaborate on something cool?
+          </p>
+          <p className="text-pixel-purple font-bold mt-2">
+            hello@richard-died.com
           </p>
         </div>
         <Sparkles className="text-pixel-purple animate-pulse absolute -bottom-4 -right-4" size={24} />
