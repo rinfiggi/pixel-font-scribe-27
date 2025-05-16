@@ -10,7 +10,7 @@ const BandsintownWidgetStyles = () => {
           background: transparent;
           font-family: "Jacquard 12", serif;
           color: #ffc1cb;
-          font-size: 20px;
+          font-size: 15px;
           text-transform: lowercase;
           line-height: 1.2;
           transition: all 0.3s ease;
@@ -46,10 +46,6 @@ const BandsintownWidgetStyles = () => {
         .bit-table .bit-cta {
           text-align: center;
           width: 25%;
-        }
-        /* Hide the Follow button and updates message */
-        .bit-follow-section, .bit-follow-section-header-text {
-          display: none !important;
         }
         /* Hide "no upcoming events" message */
         .bit-no-dates-container, .bit-no-dates-text {
