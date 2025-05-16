@@ -44,9 +44,7 @@ const SubscribeSection = () => {
       <h2 className="pixel-section-title font-jacquard text-[52px] animate-pulse">stay in touch ✧</h2>
       
       <div className="max-w-md w-full mb-6 text-center">
-        <p className="text-soft-pink mb-6">
-          Sign up to receive updates about new releases, tour dates, and merch drops
-        </p>
+        <p className="text-soft-pink mb-6">sign up to receive updates about new releases, tour dates, and merch drops</p>
         
         <form onSubmit={handleSubmit(onSubmit)} className="w-full">
           <div className="flex flex-col sm:flex-row gap-4 w-full">
@@ -60,7 +58,7 @@ const SubscribeSection = () => {
                   <span>Sending...</span>
                 </div> : <div className="flex items-center gap-2">
                   <Mail size={16} />
-                  <span>Subscribe</span>
+                  <span>subscribe</span>
                 </div>}
             </Button>
           </div>
