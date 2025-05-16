@@ -71,9 +71,7 @@ const SubscribeSection = () => {
         <Sparkles className="text-pixel-purple animate-pulse absolute -top-4 -left-4" size={24} />
         <div className="border-2 border-pixel-purple/50 px-6 py-4 text-center max-w-sm hover:border-pixel-purple transition-all duration-300">
           <p className="text-soft-pink text-sm">get in touch :-)</p>
-          <p className="text-pixel-purple font-bold mt-2">
-            hello@richard-died.com
-          </p>
+          <p className="text-pixel-purple font-bold mt-2">mgmt@rinfiggi.online</p>
         </div>
         <Sparkles className="text-pixel-purple animate-pulse absolute -bottom-4 -right-4" size={24} />
       </div>
