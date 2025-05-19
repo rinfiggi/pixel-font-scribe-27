@@ -16,43 +16,51 @@ const MerchSection = () => {
   const merchItems: MerchItem[] = [
     { 
       id: 1, 
-      name: "voicemail + the lost transmissions vinyl", 
+      name: ""the lost transmissions" vinyl", 
       image: "/lovable-uploads/0692eb72-664b-422c-913c-e01d00745392.png",
       type: "vinyl",
       priority: 1,
-      price: "€22.99"
+      price: "€22.99 (tax. excluded)"
     },
     { 
       id: 2, 
-      name: "voicemail vinyl", 
+      name: ""the lost transmissions" vinyl" + booklet, 
       image: "/lovable-uploads/0692eb72-664b-422c-913c-e01d00745392.png",
       type: "vinyl",
       priority: 2,
-      price: "€17.99"
+      price: "€33.90"
     },
     { 
       id: 3, 
-      name: "voicemail + the lost transmissions cd", 
+      name: ""voicemail + the lost\ntransmissions" cd + booklet", 
       image: "/lovable-uploads/0692eb72-664b-422c-913c-e01d00745392.png",
       type: "cd",
       priority: 3,
-      price: "€11.99"
+      price: "€15.40"
     },
     { 
       id: 4, 
-      name: "voicemail cd", 
+      name: ""voicemail" cd", 
       image: "/lovable-uploads/0692eb72-664b-422c-913c-e01d00745392.png",
       type: "cd",
       priority: 4,
-      price: "€8.99"
+      price: "€13.90"
     },
     { 
-      id: 5, 
+      id: 6, 
       name: "richard died,\njanuary killed\nhim - tote bag", 
       image: "/lovable-uploads/0692eb72-664b-422c-913c-e01d00745392.png",
       type: "merch",
       priority: 5,
-      price: "€14.99"
+      price: "€10.00"
+    }
+      { 
+      id: 5, 
+      name: ""voicemail" vinyl", 
+      image: "/lovable-uploads/0692eb72-664b-422c-913c-e01d00745392.png",
+      type: "merch",
+      priority: 5,
+      price: "€33.90"
     }
   ];
 
