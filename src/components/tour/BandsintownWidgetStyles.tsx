@@ -4,11 +4,9 @@ const BandsintownWidgetStyles = () => {
   useEffect(() => {
     const style = document.createElement('style');
     style.innerHTML = `
-      /* assicurati di caricare "Jacquard 12" da google fonts! */
       .bit-html-export {
         width: 100%;
         background: transparent;
-        font-family: "Jacquard 12", serif;
         color: #ffc1cb;
         font-size: 15px;
         text-transform: lowercase;
@@ -22,6 +20,7 @@ const BandsintownWidgetStyles = () => {
       .bit-table td {
         padding: 14px 10px;
         vertical-align: middle;
+        line-height: 1.5;
         transition: all 0.2s ease;
       }
       .bit-table tr {
@@ -48,15 +47,12 @@ const BandsintownWidgetStyles = () => {
         width: 25%;
       }
 
-      /* hide "no upcoming events" message */
       .bit-no-dates-container {
         display: none !important;
       }
 
-      /* make past shows lowercase */
       .bit-local-dates-button {
         text-transform: lowercase !important;
-        font-family: "Jacquard 12", serif !important;
         font-size: 22px !important;
         transition: color 0.3s ease, transform 0.2s ease;
         margin: 12px 0;
@@ -67,19 +63,16 @@ const BandsintownWidgetStyles = () => {
         transform: translateY(-1px);
       }
 
-      /* additional line height for better readability */
       .bit-event-list-container {
-        line-height: 1.5;
+        line-height: 1.5 !important;
         letter-spacing: 0.05em;
       }
 
-      /* update font for headers */
       .bit-follow-section-header-text {
-        font-family: "Jacquard 12", serif !important;
         font-size: 22px !important;
+        line-height: 1.4 !important;
       }
 
-      /* animate ticket buttons */
       .bit-button {
         transition: all 0.3s ease;
         margin: 5px 0;
@@ -90,15 +83,16 @@ const BandsintownWidgetStyles = () => {
         box-shadow: 0 4px 8px rgba(155, 135, 245, 0.3);
       }
 
-      /* spacing between rows */
       .bit-event-row td {
         padding-top: 16px;
         padding-bottom: 16px;
+        line-height: 1.5;
       }
 
-      /* spacing between content */
       .bit-venue, .bit-date, .bit-location {
         margin: 8px 0;
+        display: block;
+        line-height: 1.5;
       }
     `;
     document.head.appendChild(style);
