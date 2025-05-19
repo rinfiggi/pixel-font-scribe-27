@@ -92,7 +92,7 @@
     @apply bg-dark-purple text-foreground font-pixel;
     background-image: 
       linear-gradient(to bottom, rgba(26, 31, 44, 0.7), rgba(26, 31, 44, 0.7)),
-      url("/lovable-uploads/293fdc7e-5010-4a9d-91cd-d5aa304b1539.png");
+      url("https://cdn.shopify.com/s/files/1/0564/7617/2332/files/GrainBackround.gif?v=1667804647");
     background-size: cover;
     background-attachment: fixed;
     filter: invert(1);
@@ -143,7 +143,7 @@
     height: 100%;
     opacity: 0.15;
     pointer-events: none;
-    background-image: url("/lovable-uploads/293fdc7e-5010-4a9d-91cd-d5aa304b1539.png");
+    background-image: url("https://cdn.shopify.com/s/files/1/0564/7617/2332/files/GrainBackround.gif?v=1667804647");
   }
 
   @keyframes spin-slow {
