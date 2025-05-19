@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Disc, ShoppingBag } from 'lucide-react';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
@@ -16,51 +15,51 @@ const MerchSection = () => {
   const merchItems: MerchItem[] = [
     { 
       id: 1, 
-      name: ""the lost transmissions" vinyl", 
+      name: '"the lost transmissions" vinyl', 
       image: "/lovable-uploads/0692eb72-664b-422c-913c-e01d00745392.png",
       type: "vinyl",
       priority: 1,
-      price: "€22.99 (tax. excluded)"
+      price: "€22.99 (tax excluded)"
     },
     { 
       id: 2, 
-      name: ""the lost transmissions" vinyl" + booklet, 
+      name: '"the lost transmissions" vinyl + booklet', 
       image: "/lovable-uploads/0692eb72-664b-422c-913c-e01d00745392.png",
       type: "vinyl",
       priority: 2,
-      price: "€33.90"
+      price: "€33.90 (tax excluded)"
     },
     { 
       id: 3, 
-      name: ""voicemail + the lost\ntransmissions" cd + booklet", 
+      name: '"voicemail + the lost transmissions" cd + booklet', 
       image: "/lovable-uploads/0692eb72-664b-422c-913c-e01d00745392.png",
       type: "cd",
       priority: 3,
-      price: "€15.40"
+      price: "€15.40 (tax excluded)"
     },
     { 
       id: 4, 
-      name: ""voicemail" cd", 
+      name: '"voicemail" cd', 
       image: "/lovable-uploads/0692eb72-664b-422c-913c-e01d00745392.png",
       type: "cd",
       priority: 4,
-      price: "€13.90"
+      price: "€13.90 (tax excluded)"
+    },
+    { 
+      id: 5, 
+      name: '"voicemail" vinyl', 
+      image: "/lovable-uploads/0692eb72-664b-422c-913c-e01d00745392.png",
+      type: "vinyl",
+      priority: 5,
+      price: "€33.90 (tax excluded)"
     },
     { 
       id: 6, 
-      name: "richard died,\njanuary killed\nhim - tote bag", 
+      name: 'richard died, january killed him – tote bag', 
       image: "/lovable-uploads/0692eb72-664b-422c-913c-e01d00745392.png",
       type: "merch",
-      priority: 5,
-      price: "€10.00"
-    }
-      { 
-      id: 5, 
-      name: ""voicemail" vinyl", 
-      image: "/lovable-uploads/0692eb72-664b-422c-913c-e01d00745392.png",
-      type: "merch",
-      priority: 5,
-      price: "€33.90"
+      priority: 6,
+      price: "€10.00 (tax excluded)"
     }
   ];
 
