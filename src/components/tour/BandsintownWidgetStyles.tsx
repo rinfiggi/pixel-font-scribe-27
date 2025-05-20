@@ -1,3 +1,4 @@
+
 import React, { useEffect } from 'react';
 
 const BandsintownWidgetStyles = () => {
@@ -10,20 +11,20 @@ const BandsintownWidgetStyles = () => {
         color: #ffc1cb;
         font-size: 15px;
         text-transform: lowercase;
-        line-height: 1.6;
+        line-height: 2.1; /* Aumentato */
         transition: all 0.3s ease;
       }
 
       .bit-table {
         width: 100%;
         transition: all 0.3s ease;
-        border-spacing: 0 12px;
+        border-spacing: 0 18px; /* Aumentato il separatore verticale */
       }
 
       .bit-table td {
-        padding: 14px 10px;
+        padding: 20px 18px; /* Padding aumentato (verticale e orizzontale) */
         vertical-align: top;
-        line-height: 1.6;
+        line-height: 2.1; /* Aumentato per maggiore spaziatura */
         transition: all 0.2s ease;
       }
 
@@ -75,13 +76,13 @@ const BandsintownWidgetStyles = () => {
       }
 
       .bit-event-list-container {
-        line-height: 1.6 !important;
+        line-height: 2.1 !important; /* Maggiore spazio tra eventi */
         letter-spacing: 0.03em;
       }
 
       .bit-follow-section-header-text {
         font-size: 22px !important;
-        line-height: 1.6 !important;
+        line-height: 2.1 !important;
         margin-bottom: 16px;
       }
 
@@ -97,22 +98,22 @@ const BandsintownWidgetStyles = () => {
       }
 
       .bit-event-row td {
-        padding-top: 20px;
-        padding-bottom: 20px;
-        line-height: 1.6;
+        padding-top: 28px;
+        padding-bottom: 28px;
+        line-height: 2.1; /* Aumentato anche qui */
       }
 
       .bit-venue,
       .bit-date,
       .bit-location {
         display: block;
-        line-height: 1.6 !important;
+        line-height: 2.1 !important;
         margin-bottom: 6px;
       }
 
       /* spazio extra sotto ogni evento */
       .bit-event-row {
-        margin-bottom: 24px;
+        margin-bottom: 38px; /* aumentato */
       }
     `;
     document.head.appendChild(style);
@@ -126,3 +127,4 @@ const BandsintownWidgetStyles = () => {
 };
 
 export default BandsintownWidgetStyles;
+

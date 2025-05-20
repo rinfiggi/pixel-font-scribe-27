@@ -17,27 +17,45 @@ const MusicSection = () => {
       id: 4, 
       title: "tyler", 
       type: 'single',
-      artworkUrl: "https://i1.sndcdn.com/artworks-uv093WqyT4NnSfJy-IjUPUA-t1080x1080.jpg" 
+      artworkUrl: "https://i1.sndcdn.com/artworks-uv093WqyT4NnSfJy-IjUPUA-t1080x1080.jpg",
+      streamUrl: "https://open.spotify.com/album/29E3nEDliBUe8mpovqOXk3?si=LvaEAFVyS5qaATcCCpp7zA",
+      buyUrl: "https://music.apple.com/it/album/tyler-single/1618332151",
     },
     { 
       id: 3, 
       title: "valentine's day", 
       type: 'single',
-      artworkUrl: "https://i1.sndcdn.com/artworks-fhFHobCCJOoPubgX-WQZzCQ-t1080x1080.jpg" 
+      artworkUrl: "https://i1.sndcdn.com/artworks-fhFHobCCJOoPubgX-WQZzCQ-t1080x1080.jpg",
+      streamUrl: "https://open.spotify.com/album/09jFfc9iEelO6lcjixnJxW?si=g0mupphkQyKuIU76lcNtrg",
+      buyUrl: "https://music.apple.com/it/album/valentines-day-single/1609579002",
     },
     { 
       id: 2, 
       title: "voicemail", 
       type: 'single',
-      artworkUrl: "https://i1.sndcdn.com/artworks-rCyvgbpj05XUwip5-3fFt5A-t500x500.jpg" 
+      artworkUrl: "https://i1.sndcdn.com/artworks-rCyvgbpj05XUwip5-3fFt5A-t500x500.jpg",
+      streamUrl: "https://open.spotify.com/album/3zIU5sA3UYx580CVVWCDta?si=1J-djPkRQ0CsuucxtskBCw",
+      buyUrl: "https://rinfiggi.bandcamp.com",
     },
     { 
       id: 1, 
       title: "voicemail + the lost transmissions", 
       type: 'album',
-      artworkUrl: "https://i1.sndcdn.com/artworks-9vbko426eBsqGS2B-0baaMg-t500x500.jpg" 
+      artworkUrl: "https://i1.sndcdn.com/artworks-9vbko426eBsqGS2B-0baaMg-t500x500.jpg",
+      streamUrl: "https://ffm.to/vm_deluxe",
+      buyUrl: "https://rinfiggi.bandcamp.com",
     },
   ];
+
+  // Extra call to action links
+  const buyLinks = {
+    vinyl: "https://elasticstage.com/rinfiggi/releases/the-lost-transmissions-singleep",
+    vinylBooklet: "https://elasticstage.com/rinfiggi/releases/the-lost-transmissions-singleep",
+    cdBooklet: "https://elasticstage.com/rinfiggi/releases/voicemail-album",
+    voicemailCd: "https://elasticstage.com/rinfiggi/releases/voicemail-album",
+    voicemailVinyl: "https://elasticstage.com/rinfiggi/releases/voicemail-album",
+    toteBag: "https://shardfactory.com/shop/voicemail_totebag/",
+  };
 
   return (
     <section className="pixel-section">
@@ -66,8 +84,22 @@ const MusicSection = () => {
                     {track.type === 'album' ? 'album' : 'single'}
                   </p>
                   <div className="flex gap-4 mt-3">
-                    <button className="pixel-button text-xs px-3 py-1">✧ listen</button>
-                    <button className="pixel-button text-xs px-3 py-1">✧ buy</button>
+                    <a 
+                      href={track.streamUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="pixel-button text-xs px-3 py-1 inline-block"
+                    >
+                      ✧ listen
+                    </a>
+                    <a 
+                      href={track.buyUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="pixel-button text-xs px-3 py-1 inline-block"
+                    >
+                      ✧ buy
+                    </a>
                   </div>
                 </div>
               </CarouselItem>
@@ -78,13 +110,13 @@ const MusicSection = () => {
         </Carousel>
       </div>
       
-      <div className="mt-6 py-4 border-t border-b border-pixel-purple/30 text-center max-w-md mx-auto hover:border-pixel-purple/60 transition-all duration-300">
-        <p className="text-soft-pink text-sm mb-3 px-4">
+      <div className="mt-6 py-4 border-t border-b border-pixel-purple/30 text-center max-w-md mx-auto hover:border-pixel-purple/60 transition-all duration-300 md:flex md:flex-col md:items-center">
+        <p className="text-soft-pink text-sm mb-3 px-4 md:text-center">
           stream or buy "voicemail + the lost transmissions"
         </p>
-        <div className="flex justify-center gap-4">
+        <div className="flex justify-center gap-4 flex-wrap mb-2">
           <a 
-            href="https://open.spotify.com" 
+            href="https://ffm.to/vm_deluxe"
             target="_blank" 
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1 text-pixel-purple hover:text-soft-pink transition-all duration-300 hover:-translate-y-1"
@@ -95,7 +127,7 @@ const MusicSection = () => {
             </button>
           </a>
           <a 
-            href="https://bandcamp.com" 
+            href="https://rinfiggi.bandcamp.com"
             target="_blank" 
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1 text-pixel-purple hover:text-soft-pink transition-all duration-300 hover:-translate-y-1"
@@ -106,9 +138,38 @@ const MusicSection = () => {
             </button>
           </a>
         </div>
+        <div className="flex flex-wrap gap-2 justify-center text-xs mb-1">
+          <a
+            href={buyLinks.vinyl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline hover:text-soft-pink transition"
+          >
+            lost transmissions vinyl
+          </a>
+          <span className="hidden md:inline-block">|</span>
+          <a
+            href={buyLinks.cdBooklet}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline hover:text-soft-pink transition"
+          >
+            voicemail cd + booklet
+          </a>
+          <span className="hidden md:inline-block">|</span>
+          <a
+            href={buyLinks.toteBag}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline hover:text-soft-pink transition"
+          >
+            tote bag
+          </a>
+        </div>
       </div>
     </section>
   );
 };
 
 export default MusicSection;
+
