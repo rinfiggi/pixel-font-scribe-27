@@ -16,6 +16,14 @@ interface MusicTrack {
 const MusicSection = () => {
   const tracks: MusicTrack[] = [
     {
+      id: 1,
+      title: "voicemail + the lost transmissions",
+      type: 'album',
+      artworkUrl: "https://i1.sndcdn.com/artworks-9vbko426eBsqGS2B-0baaMg-t500x500.jpg",
+      streamUrl: "https://ffm.to/vm_deluxe",
+      buyUrl: "https://rinfiggi.bandcamp.com"
+    },
+    {
       id: 4,
       title: "tyler",
       type: 'single',
@@ -37,14 +45,6 @@ const MusicSection = () => {
       type: 'single',
       artworkUrl: "https://i1.sndcdn.com/artworks-rCyvgbpj05XUwip5-3fFt5A-t500x500.jpg",
       streamUrl: "https://open.spotify.com/album/3zIU5sA3UYx580CVVWCDta?si=1J-djPkRQ0CsuucxtskBCw",
-      buyUrl: "https://rinfiggi.bandcamp.com"
-    },
-    {
-      id: 1,
-      title: "voicemail + the lost transmissions",
-      type: 'album',
-      artworkUrl: "https://i1.sndcdn.com/artworks-9vbko426eBsqGS2B-0baaMg-t500x500.jpg",
-      streamUrl: "https://ffm.to/vm_deluxe",
       buyUrl: "https://rinfiggi.bandcamp.com"
     }
   ];
@@ -110,3 +110,4 @@ const MusicSection = () => {
   </section>;
 };
 export default MusicSection;
+

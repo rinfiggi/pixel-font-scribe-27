@@ -3,6 +3,20 @@ import React from 'react';
 import { Disc, ShoppingBag } from 'lucide-react';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 
+// Custom style for darker green merch subtitle
+const merchSubtitleStyle: React.CSSProperties = {
+  fontSize: "1.16rem",
+  lineHeight: "1.16", // reduced
+  fontWeight: 400,
+  letterSpacing: "0.015em",
+  marginBottom: "1rem",
+  marginTop: "-6px",
+  textAlign: "center",
+  maxWidth: "32rem",
+  fontFamily: "'Jacquard 12', 'Press Start 2P', cursive, serif",
+  color: "#58996a" // slightly darker green
+};
+
 interface MerchItem {
   id: number;
   name: string;
@@ -87,12 +101,8 @@ const MerchSection = () => {
   return (
     <section className="pixel-section">
       <h2 className="pixel-section-title font-jacquard text-[52px] animate-pulse lowercase">merch</h2>
-      <p className="text-xs md:text-base text-soft-pink font-jacquard mb-4 mt-[-6px] text-center max-w-lg mx-auto leading-tight px-3 italic lowercase" style={{
-        lineHeight: '1.3',
-        fontWeight: 400,
-        letterSpacing: '0.015em'
-      }}>
-        purchases are completed on external partner sites.<br />extra shipping or tax fees may apply.
+      <p className="merch-lower-sub" style={merchSubtitleStyle}>
+        purchases are completed on external partner sites.<br/>extra shipping or tax fees may apply.
       </p>
       <div className="w-full max-w-2xl pb-6">
         <Carousel className="relative px-10">
@@ -135,3 +145,4 @@ const MerchSection = () => {
 };
 
 export default MerchSection;
+
