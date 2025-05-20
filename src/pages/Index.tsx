@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Header from '../components/Header';
 import TourSection from '../components/TourSection';
@@ -34,6 +35,7 @@ const Index = () => {
           </section>
           
           <section id="contact">
+            {/* L'import era corretto, assicurati che ContactInfo sia un componente valido */}
             <ContactInfo />
           </section>
         </main>

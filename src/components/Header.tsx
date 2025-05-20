@@ -14,7 +14,7 @@ const Header = () => {
             />
           </div>
           <div className="mt-4 text-xs">
-            <div className="grid grid-cols-3 gap-4 text-soft-pink">
+            <div className="grid grid-cols-3 gap-4 text-soft-pink lowercase">
               <div className="text-right">
                 <a href="#tour" className="block hover:text-pixel-purple">- tour</a>
                 <a href="#music" className="block hover:text-pixel-purple">- music</a>
@@ -24,7 +24,7 @@ const Header = () => {
               </div>
               <div className="text-left">
                 <a href="#merch" className="block hover:text-pixel-purple">- merch</a>
-                <a href="#newsletter" className="block hover:text-pixel-purple">- updates</a>
+                <a href="#newsletter" className="block hover:text-pixel-purple">- notes</a>
               </div>
             </div>
           </div>

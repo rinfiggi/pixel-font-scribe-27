@@ -200,3 +200,32 @@
     animation: fade-in 0.5s ease-out;
   }
 }
+
+/* Globale: tutto lowercase dovunque possibile */
+body, h1, h2, h3, h4, h5, h6, p, strong, em, span, a, button, label, input, textarea, select, .pixel-section-title, .pixel-button, .songkick-widget, .songkick-widget *, th, td, caption {
+  text-transform: lowercase !important;
+  /* font-variant: none; */ 
+}
+
+/* Merch subtitle: adattamenti richiesti */
+.merch-lower-sub {
+  font-size: 1.1rem;
+  line-height: 1.3;
+  font-weight: 400;
+  letter-spacing: 0.015em;
+  margin-bottom: 1rem;
+  margin-top: -6px;
+  text-align: center;
+  max-width: 32rem;
+  font-family: 'Jacquard 12', 'Press Start 2P', cursive, serif;
+  color: #ffc1cb;
+}
+
+.pixel-section-title {
+  text-transform: lowercase !important;
+}
+
+/* Assicura link e bottoni in lowercase */
+a, button {
+  text-transform: lowercase !important;
+}

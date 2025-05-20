@@ -86,9 +86,13 @@ const MerchSection = () => {
 
   return (
     <section className="pixel-section">
-      <h2 className="pixel-section-title font-jacquard text-[52px] animate-pulse">merch</h2>
-      <p className="text-xs text-soft-pink font-jacquard mb-4 mt-[-6px] text-center max-w-lg mx-auto leading-snug px-3 italic">
-        All purchases happen on our partners’ platforms. Extra shipping & taxes may surprise you (but hey, that's what makes your order a little more mysterious)!
+      <h2 className="pixel-section-title font-jacquard text-[52px] animate-pulse lowercase">merch</h2>
+      <p className="text-xs md:text-base text-soft-pink font-jacquard mb-4 mt-[-6px] text-center max-w-lg mx-auto leading-tight px-3 italic lowercase" style={{
+        lineHeight: '1.3',
+        fontWeight: 400,
+        letterSpacing: '0.015em'
+      }}>
+        purchases are completed on external partner sites.<br />extra shipping or tax fees may apply.
       </p>
       <div className="w-full max-w-2xl pb-6">
         <Carousel className="relative px-10">
@@ -104,17 +108,17 @@ const MerchSection = () => {
                       className="w-full h-full object-contain"
                     />
                   </div>
-                  <p className="text-soft-pink text-center mb-2 whitespace-pre-line">
+                  <p className="text-soft-pink text-center mb-2 whitespace-pre-line lowercase">
                     {item.name}
                   </p>
-                  <p className="text-pixel-purple text-center mb-4 animate-pulse">
+                  <p className="text-pixel-purple text-center mb-4 animate-pulse lowercase">
                     {item.price}
                   </p>
                   <a
                     href={item.buyUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="pixel-button transition-all text-xs px-5 py-2"
+                    className="pixel-button transition-all text-xs px-5 py-2 lowercase"
                   >
                     buy ✧
                   </a>
