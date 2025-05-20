@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Disc, ShoppingBag } from 'lucide-react';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
@@ -9,6 +10,7 @@ interface MerchItem {
   type: string;
   priority: number;
   price: string;
+  buyUrl: string;
 }
 
 const MerchSection = () => {
@@ -19,7 +21,8 @@ const MerchSection = () => {
       image: "/lovable-uploads/0692eb72-664b-422c-913c-e01d00745392.png",
       type: "vinyl",
       priority: 1,
-      price: "€22.99 (tax excluded)"
+      price: "€22.99 (tax excluded)",
+      buyUrl: "https://elasticstage.com/rinfiggi/releases/the-lost-transmissions-singleep"
     },
     { 
       id: 2, 
@@ -27,7 +30,8 @@ const MerchSection = () => {
       image: "/lovable-uploads/0692eb72-664b-422c-913c-e01d00745392.png",
       type: "vinyl",
       priority: 2,
-      price: "€33.90 (tax excluded)"
+      price: "€33.90 (tax excluded)",
+      buyUrl: "https://elasticstage.com/rinfiggi/releases/the-lost-transmissions-singleep"
     },
     { 
       id: 3, 
@@ -35,7 +39,8 @@ const MerchSection = () => {
       image: "/lovable-uploads/0692eb72-664b-422c-913c-e01d00745392.png",
       type: "cd",
       priority: 3,
-      price: "€15.40 (tax excluded)"
+      price: "€15.40 (tax excluded)",
+      buyUrl: "https://elasticstage.com/rinfiggi/releases/voicemail-album"
     },
     { 
       id: 4, 
@@ -43,7 +48,8 @@ const MerchSection = () => {
       image: "/lovable-uploads/0692eb72-664b-422c-913c-e01d00745392.png",
       type: "cd",
       priority: 4,
-      price: "€13.90 (tax excluded)"
+      price: "€13.90 (tax excluded)",
+      buyUrl: "https://elasticstage.com/rinfiggi/releases/voicemail-album"
     },
     { 
       id: 5, 
@@ -51,7 +57,8 @@ const MerchSection = () => {
       image: "/lovable-uploads/0692eb72-664b-422c-913c-e01d00745392.png",
       type: "vinyl",
       priority: 5,
-      price: "€33.90 (tax excluded)"
+      price: "€33.90 (tax excluded)",
+      buyUrl: "https://elasticstage.com/rinfiggi/releases/voicemail-album"
     },
     { 
       id: 6, 
@@ -59,7 +66,8 @@ const MerchSection = () => {
       image: "/lovable-uploads/0692eb72-664b-422c-913c-e01d00745392.png",
       type: "merch",
       priority: 6,
-      price: "€10.00 (tax excluded)"
+      price: "€10.00 (tax excluded)",
+      buyUrl: "https://shardfactory.com/shop/voicemail_totebag/"
     }
   ];
 
@@ -79,7 +87,9 @@ const MerchSection = () => {
   return (
     <section className="pixel-section">
       <h2 className="pixel-section-title font-jacquard text-[52px] animate-pulse">merch</h2>
-
+      <p className="text-xs text-soft-pink font-jacquard mb-4 mt-[-6px] text-center max-w-lg mx-auto leading-snug px-3 italic">
+        All purchases happen on our partners’ platforms. Extra shipping & taxes may surprise you (but hey, that's what makes your order a little more mysterious)!
+      </p>
       <div className="w-full max-w-2xl pb-6">
         <Carousel className="relative px-10">
           <CarouselContent>
@@ -100,7 +110,14 @@ const MerchSection = () => {
                   <p className="text-pixel-purple text-center mb-4 animate-pulse">
                     {item.price}
                   </p>
-                  <button className="pixel-button transition-all">buy ✧</button>
+                  <a
+                    href={item.buyUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="pixel-button transition-all text-xs px-5 py-2"
+                  >
+                    buy ✧
+                  </a>
                 </div>
               </CarouselItem>
             ))}
