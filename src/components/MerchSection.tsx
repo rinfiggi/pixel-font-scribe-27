@@ -153,7 +153,7 @@ const MerchSection = () => {
                     href={item.buyUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="pixel-button transition-all text-xs px-5 py-2 lowercase"
+                    className="pixel-button transition-all duration-300 text-xs px-5 py-2 lowercase hover:-translate-y-1"
                     style={{ color: "#FFF" }}
                   >
                     buy ✧

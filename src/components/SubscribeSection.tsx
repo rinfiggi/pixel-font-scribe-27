@@ -23,7 +23,7 @@ const SubscribeSection = () => {
       <div className="max-w-[320px] w-full mb-6 text-center mx-auto sm:max-w-md">
         <p className="text-soft-pink mb-6 text-base">sign up to receive updates about new releases, tour dates, and merch drops</p>
         <div className="w-full flex justify-center">
-          <Button onClick={handleRedirect} className="pixel-button !border-2 !border-black h-12 min-w-[180px] sm:min-w-[200px] transition-all" disabled={loading}>
+          <Button onClick={handleRedirect} className="pixel-button !border-2 !border-black h-12 min-w-[180px] sm:min-w-[200px] transition-all duration-300 hover:-translate-y-1" disabled={loading}>
             {loading ? (
               <div className="flex items-center gap-2">
                 <div className="animate-spin h-4 w-4 border-2 border-current border-t-transparent rounded-full"></div>

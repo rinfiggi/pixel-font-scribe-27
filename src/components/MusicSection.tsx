@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Headphones, ExternalLink } from 'lucide-react';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
@@ -69,10 +68,10 @@ const MusicSection = () => {
                 {track.type === 'album' ? 'album' : 'single'}
               </p>
               <div className="flex gap-4 mt-3">
-                <a href={track.streamUrl} target="_blank" rel="noopener noreferrer" className="pixel-button text-xs px-3 py-1 inline-block" style={{ color: "#FFF" }}>
+                <a href={track.streamUrl} target="_blank" rel="noopener noreferrer" className="pixel-button text-xs px-3 py-1 inline-block transition-all duration-300 hover:-translate-y-1" style={{ color: "#FFF" }}>
                   ✧ listen
                 </a>
-                <a href={track.buyUrl} target="_blank" rel="noopener noreferrer" className="pixel-button text-xs px-3 py-1 inline-block" style={{ color: "#FFF" }}>
+                <a href={track.buyUrl} target="_blank" rel="noopener noreferrer" className="pixel-button text-xs px-3 py-1 inline-block transition-all duration-300 hover:-translate-y-1" style={{ color: "#FFF" }}>
                   ✧ buy
                 </a>
               </div>
