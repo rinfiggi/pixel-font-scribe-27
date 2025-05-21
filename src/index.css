@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Jacquard 12 from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Jacquard+12&display=swap');
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -90,9 +93,7 @@
 
   body {
     @apply bg-dark-purple text-foreground font-pixel;
-    background-image: 
-      linear-gradient(to bottom, rgba(26, 31, 44, 0.7), rgba(26, 31, 44, 0.7)),
-      url("https://cdn.shopify.com/s/files/1/0564/7617/2332/files/GrainBackround.gif?v=1667804647");
+    background-image: url("https://cdn.shopify.com/s/files/1/0564/7617/2332/files/GrainBackround.gif?v=1667804647");
     background-size: cover;
     background-attachment: fixed;
     filter: invert(1);
@@ -275,6 +276,103 @@ a, button {
 /* Bottoni: colore testo bianco */
 .pixel-button {
   color: #fff !important;
+}
+
+/* --- OVERRIDE BACKGROUND FOR UNQUE GIF BG ON ALL --- */
+body {
+  @apply bg-dark-purple text-foreground font-pixel;
+  background-image: url("https://cdn.shopify.com/s/files/1/0564/7617/2332/files/GrainBackround.gif?v=1667804647");
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: repeat;
+  filter: invert(1);
+  /* Remove border/margins so that background touches viewport sides */
+  margin: 0;
+  padding: 0;
+}
+
+.bg-dark-purple { filter: invert(1); }
+
+#root {
+  filter: invert(1);
+}
+
+img, svg, video {
+  filter: invert(1);
+}
+
+/* SECTION & TITLE SIZE TWEAKS */
+.pixel-section-title {
+  @apply font-jacquard;
+  text-transform: lowercase !important;
+  /* Enlarged for mobile/desktop responsiveness */
+  font-size: min(12vw, 52px) !important;
+  margin-bottom: 1.5rem;
+}
+
+@media (max-width: 639px) {
+  .pixel-section-title {
+    font-size: 2.3rem !important;
+    margin-bottom: 1rem;
+  }
+  /* Reduce default font-size for body and .font-pixel elements */
+  body, .font-pixel {
+    font-size: 12px !important;
+  }
+  .pixel-button {
+    font-size: 12px !important;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+  /* Make 'get in touch' box smaller on mobile */
+  .max-w-\[220px\] {
+    max-width: 170px !important;
+  }
+  .sm\:max-w-sm {
+    max-width: 90vw !important; /* failsafe for edge screens */
+  }
+}
+
+/* Fix Press Start 2P font sizes in buttons and wherever used */
+.pixel-button, button, .font-pixel {
+  font-family: 'Press Start 2P', cursive !important;
+  font-size: 14px;
+  white-space: normal;
+}
+@media (max-width: 639px) {
+  .pixel-button, button, .font-pixel {
+    font-size: 10px !important;
+  }
+}
+
+/* Enlarged merch images, remove shadow and dot, center block */
+.merch-lower-sub { /* unchanged */ }
+.pixel-section { /* unchanged (padding/margin) */   }
+/* Remove shadow and dot from merch images */
+.pixel-section .carousel img {
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  width: 185px !important;
+  height: 185px !important;
+}
+@media (max-width: 639px) {
+  .pixel-section .carousel img {
+    width: 130px !important;
+    height: 130px !important;
+  }
+}
+
+/* Hide the pink dot/Disc in merch images: (handled in TSX by not rendering icon) */
+
+/* Usercentrics styles (minimal override) */
+.usercentrics-root,
+#usercentrics-cmp {
+  font-family: 'Jacquard 12', 'Press Start 2P', cursive, serif !important;
+  color: #ffc1cb !important;
+  background: #13121A !important;
+  border-radius: 0 !important;
+  text-transform: lowercase !important;
+  z-index: 999999;
 }
 
 /* Usercentrics CMP: stile di base suggerito (override minimal per coerenza, può essere migliorato) */
