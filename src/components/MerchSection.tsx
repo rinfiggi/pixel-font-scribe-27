@@ -1,29 +1,21 @@
 
 import React from 'react';
+import { Disc, ShoppingBag } from 'lucide-react';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 
+// Colore sottotitolo merch: più scuro di pixel-purple
 const merchSubtitleStyle: React.CSSProperties = {
-  fontSize: "1.12rem",
-  lineHeight: "1.23",
+  fontSize: "1.15rem",
+  lineHeight: "1.08", // meno spazio tra le righe
   fontWeight: 400,
   letterSpacing: "0.015em",
-  marginBottom: "0.3rem",
-  marginTop: "-6px",
+  marginBottom: "1.1rem",
+  marginTop: "-7px",
   textAlign: "center",
   maxWidth: "32rem",
   fontFamily: "'Jacquard 12', 'Press Start 2P', cursive, serif",
-  color: "#6741a6", // Scuro rispetto al merch (pixel-purple)
+  color: "#674dbe", // più scuro di pixel-purple
   textTransform: "lowercase"
-};
-
-const taxExcludedStyle: React.CSSProperties = {
-  color: "#b397df",
-  fontSize: "1rem",
-  marginTop: "-1.05rem",
-  marginBottom: "1.08rem",
-  textAlign: "center",
-  fontFamily: "'Jacquard 12', serif",
-  letterSpacing: "0.005em"
 };
 
 interface MerchItem {
@@ -41,10 +33,10 @@ const MerchSection = () => {
     { 
       id: 1, 
       name: '"the lost transmissions" vinyl', 
-      image: "/lovable-uploads/fc4acd92-53f9-4b64-8439-b8031768b70c.png", // tls vinyl.png
+      image: "/lovable-uploads/fc4acd92-53f9-4b64-8439-b8031768b70c.png", // vm + tls vinyl.png
       type: "vinyl",
       priority: 1,
-      price: "€27.90 (tax excluded)",
+      price: "€27.90 (tax excluded)", // prezzo aggiornato
       buyUrl: "https://elasticstage.com/rinfiggi/releases/the-lost-transmissions-singleep"
     },
     { 
@@ -59,7 +51,7 @@ const MerchSection = () => {
     { 
       id: 3, 
       name: '"voicemail + the lost transmissions" cd + booklet', 
-      image: "/lovable-uploads/59647938-a718-498e-bcc7-75c190b0d860.png", 
+      image: "/lovable-uploads/59647938-a718-498e-bcc7-75c190b0d860.png", // vm + tls cd.png
       type: "cd",
       priority: 3,
       price: "€15.40 (tax excluded)",
@@ -68,7 +60,7 @@ const MerchSection = () => {
     { 
       id: 4, 
       name: '"voicemail" cd', 
-      image: "/lovable-uploads/9d89d8d1-15a7-4e63-891b-6fde46daf2db.png", 
+      image: "/lovable-uploads/9d89d8d1-15a7-4e63-891b-6fde46daf2db.png", // vm cd.png
       type: "cd",
       priority: 4,
       price: "€13.90 (tax excluded)",
@@ -77,7 +69,7 @@ const MerchSection = () => {
     { 
       id: 5, 
       name: '"voicemail" vinyl', 
-      image: "/lovable-uploads/bf767b34-63bd-4240-bb96-9adb0e11aa1e.png", 
+      image: "/lovable-uploads/bf767b34-63bd-4240-bb96-9adb0e11aa1e.png", // vm vinyl.png
       type: "vinyl",
       priority: 5,
       price: "€33.90 (tax excluded)",
@@ -86,7 +78,7 @@ const MerchSection = () => {
     { 
       id: 6, 
       name: 'richard died, january killed him – tote bag', 
-      image: "/lovable-uploads/5bb2e238-cb43-493f-8054-12d008bc78bc.png", // USO QUELLO INVIATO
+      image: "/lovable-uploads/0692eb72-664b-422c-913c-e01d00745392.png", // tote bag_nobg.png
       type: "merch",
       priority: 6,
       price: "€10.00 (tax excluded)",
@@ -96,36 +88,53 @@ const MerchSection = () => {
 
   const sortedItems = [...merchItems].sort((a, b) => a.priority - b.priority);
 
+  const renderItemIcon = (type: string) => {
+    switch(type) {
+      case 'vinyl':
+      case 'cd':
+        return <Disc size={24} className="mb-2 text-soft-pink animate-spin-slow" />;
+      default:
+        return <ShoppingBag size={24} className="mb-2 text-soft-pink animate-pulse" />;
+    }
+  };
+
   return (
-    <section className="pixel-section merch-section">
+    <section className="pixel-section">
       <h2 className="pixel-section-title font-jacquard text-[52px] animate-pulse lowercase">merch</h2>
       <p className="merch-lower-sub" style={merchSubtitleStyle}>
         purchases are completed on external partner sites.<br />extra shipping or tax fees may apply.
       </p>
-      <div className="merch-tax-excluded" style={taxExcludedStyle}>
-        tax excluded
-      </div>
       <div className="w-full max-w-2xl pb-6">
         <Carousel className="relative px-3 sm:px-10">
           <CarouselContent>
             {sortedItems.map((item) => (
-              <CarouselItem key={item.id} className="transition-all duration-300 py-4 px-2">
+              <CarouselItem key={item.id} className="transition-all duration-300 py-4 px-1 sm:px-2">
                 <div className="flex flex-col items-center overflow-visible h-full">
-                  <img 
-                    src={item.image} 
-                    alt={`${item.name} merch`} 
+                  {/* SOLO L'IMMAGINE "NATURALE" SENZA CONTENITORI O SFONDI AGGIUNTIVI */}
+                  <div
+                    className="mb-4 flex flex-col items-center justify-center"
                     style={{
-                      width: '182px',
-                      height: '182px',
-                      objectFit: 'contain',
-                      display: 'block',
-                      border: 'none',
                       borderRadius: 0,
-                      margin: 0,
-                      boxShadow: 'none',
-                      background: 'none'
+                      overflow: 'visible'
                     }}
-                  />
+                  >
+                    {renderItemIcon(item.type)}
+                    <img 
+                      src={item.image} 
+                      alt={`${item.name} merch`} 
+                      className="object-contain"
+                      style={{
+                        width: '132px',
+                        height: '132px',
+                        objectFit: 'contain',
+                        display: 'block',
+                        border: 'none',
+                        borderRadius: 0,
+                        margin: 0,
+                        boxShadow: '0px 3px 20px 0px rgba(0,0,0,0.10)' // soft natural ombra
+                      }}
+                    />
+                  </div>
                   <p className="text-soft-pink text-center mb-2 whitespace-pre-line lowercase text-[15px] sm:text-base">
                     {item.name}
                   </p>
@@ -137,7 +146,7 @@ const MerchSection = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="pixel-button transition-all text-xs px-5 py-2 lowercase"
-                    style={{ color: "#FFF" }}
+                    style={{ color: "#FFF" }} // bianco
                   >
                     buy ✧
                   </a>

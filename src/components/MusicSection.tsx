@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Headphones, ExternalLink } from 'lucide-react';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
@@ -68,11 +69,11 @@ const MusicSection = () => {
                 {track.type === 'album' ? 'album' : 'single'}
               </p>
               <div className="flex gap-4 mt-3">
-                <a href={track.streamUrl} target="_blank" rel="noopener noreferrer" className="pixel-button text-xs px-3 py-1 inline-block" style={{ color: "#fff" }}>
-                  <span>✧ listen</span>
+                <a href={track.streamUrl} target="_blank" rel="noopener noreferrer" className="pixel-button text-xs px-3 py-1 inline-block" style={{ color: "#FFF" }}>
+                  ✧ listen
                 </a>
-                <a href={track.buyUrl} target="_blank" rel="noopener noreferrer" className="pixel-button text-xs px-3 py-1 inline-block" style={{ color: "#fff" }}>
-                  <span>✧ buy</span>
+                <a href={track.buyUrl} target="_blank" rel="noopener noreferrer" className="pixel-button text-xs px-3 py-1 inline-block" style={{ color: "#FFF" }}>
+                  ✧ buy
                 </a>
               </div>
             </div>
@@ -88,13 +89,15 @@ const MusicSection = () => {
       </p>
       <div className="flex justify-center gap-4 flex-wrap mb-2">
         <a href="https://ffm.to/vm_deluxe" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-pixel-purple hover:text-soft-pink transition-all duration-300 hover:-translate-y-1">
-          <button className="pixel-button inline-flex items-center gap-2" style={{ color: "#fff", fontSize: "0.87rem" }}>
-            <span>stream</span>
+          <button className="pixel-button inline-flex items-center gap-2" style={{ color: "#FFF" }}>
+            <Headphones size={14} />
+            <span className="text-xs">stream</span>
           </button>
         </a>
         <a href="https://rinfiggi.bandcamp.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-pixel-purple hover:text-soft-pink transition-all duration-300 hover:-translate-y-1">
-          <button className="pixel-button inline-flex items-center gap-2" style={{ color: "#fff", fontSize: "0.87rem" }}>
-            <span>buy</span>
+          <button className="pixel-button inline-flex items-center gap-2" style={{ color: "#FFF" }}>
+            <ExternalLink size={14} />
+            <span className="text-xs">buy</span>
           </button>
         </a>
       </div>
