@@ -3,17 +3,27 @@ import React from 'react';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 
 const merchSubtitleStyle: React.CSSProperties = {
-  fontSize: "1.11rem",
-  lineHeight: "1.03",
+  fontSize: "1.12rem",
+  lineHeight: "1.23",
   fontWeight: 400,
   letterSpacing: "0.015em",
-  marginBottom: "1rem",
-  marginTop: "-7px",
+  marginBottom: "0.3rem",
+  marginTop: "-6px",
   textAlign: "center",
   maxWidth: "32rem",
   fontFamily: "'Jacquard 12', 'Press Start 2P', cursive, serif",
   color: "#6741a6", // Scuro rispetto al merch (pixel-purple)
   textTransform: "lowercase"
+};
+
+const taxExcludedStyle: React.CSSProperties = {
+  color: "#b397df",
+  fontSize: "1rem",
+  marginTop: "-1.05rem",
+  marginBottom: "1.08rem",
+  textAlign: "center",
+  fontFamily: "'Jacquard 12', serif",
+  letterSpacing: "0.005em"
 };
 
 interface MerchItem {
@@ -49,7 +59,7 @@ const MerchSection = () => {
     { 
       id: 3, 
       name: '"voicemail + the lost transmissions" cd + booklet', 
-      image: "/lovable-uploads/59647938-a718-498e-bcc7-75c190b0d860.png", // vm + tls cd.png
+      image: "/lovable-uploads/59647938-a718-498e-bcc7-75c190b0d860.png", 
       type: "cd",
       priority: 3,
       price: "€15.40 (tax excluded)",
@@ -58,7 +68,7 @@ const MerchSection = () => {
     { 
       id: 4, 
       name: '"voicemail" cd', 
-      image: "/lovable-uploads/9d89d8d1-15a7-4e63-891b-6fde46daf2db.png", // vm cd.png
+      image: "/lovable-uploads/9d89d8d1-15a7-4e63-891b-6fde46daf2db.png", 
       type: "cd",
       priority: 4,
       price: "€13.90 (tax excluded)",
@@ -67,7 +77,7 @@ const MerchSection = () => {
     { 
       id: 5, 
       name: '"voicemail" vinyl', 
-      image: "/lovable-uploads/bf767b34-63bd-4240-bb96-9adb0e11aa1e.png", // vm vinyl.png
+      image: "/lovable-uploads/bf767b34-63bd-4240-bb96-9adb0e11aa1e.png", 
       type: "vinyl",
       priority: 5,
       price: "€33.90 (tax excluded)",
@@ -76,7 +86,7 @@ const MerchSection = () => {
     { 
       id: 6, 
       name: 'richard died, january killed him – tote bag', 
-      image: "/lovable-uploads/0692eb72-664b-422c-913c-e01d00745392.png", // tote bag_nobg.png
+      image: "/lovable-uploads/5bb2e238-cb43-493f-8054-12d008bc78bc.png", // USO QUELLO INVIATO
       type: "merch",
       priority: 6,
       price: "€10.00 (tax excluded)",
@@ -87,25 +97,26 @@ const MerchSection = () => {
   const sortedItems = [...merchItems].sort((a, b) => a.priority - b.priority);
 
   return (
-    <section className="pixel-section">
+    <section className="pixel-section merch-section">
       <h2 className="pixel-section-title font-jacquard text-[52px] animate-pulse lowercase">merch</h2>
       <p className="merch-lower-sub" style={merchSubtitleStyle}>
         purchases are completed on external partner sites.<br />extra shipping or tax fees may apply.
       </p>
+      <div className="merch-tax-excluded" style={taxExcludedStyle}>
+        tax excluded
+      </div>
       <div className="w-full max-w-2xl pb-6">
         <Carousel className="relative px-3 sm:px-10">
           <CarouselContent>
             {sortedItems.map((item) => (
               <CarouselItem key={item.id} className="transition-all duration-300 py-4 px-2">
                 <div className="flex flex-col items-center overflow-visible h-full">
-                  {/* Solo immagine naturale, no sfondi, ombre rimosse */}
                   <img 
                     src={item.image} 
                     alt={`${item.name} merch`} 
-                    className="object-contain"
                     style={{
-                      width: '150px',
-                      height: '150px',
+                      width: '182px',
+                      height: '182px',
                       objectFit: 'contain',
                       display: 'block',
                       border: 'none',
