@@ -3,18 +3,18 @@ import React from 'react';
 import { Disc, ShoppingBag } from 'lucide-react';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 
-// Custom style per il sottotitolo della merch (già richiesto prima)
+// Colore sottotitolo merch: più scuro di pixel-purple
 const merchSubtitleStyle: React.CSSProperties = {
-  fontSize: "1.18rem",
-  lineHeight: "1.06", // meno spazio tra le righe
+  fontSize: "1.15rem",
+  lineHeight: "1.08", // meno spazio tra le righe
   fontWeight: 400,
   letterSpacing: "0.015em",
-  marginBottom: "1rem",
-  marginTop: "-6px",
+  marginBottom: "1.1rem",
+  marginTop: "-7px",
   textAlign: "center",
   maxWidth: "32rem",
   fontFamily: "'Jacquard 12', 'Press Start 2P', cursive, serif",
-  color: "#58996a", // verde leggermente più scuro
+  color: "#674dbe", // più scuro di pixel-purple
   textTransform: "lowercase"
 };
 
@@ -33,10 +33,10 @@ const MerchSection = () => {
     { 
       id: 1, 
       name: '"the lost transmissions" vinyl', 
-      image: "/lovable-uploads/fc4acd92-53f9-4b64-8439-b8031768b70c.png", // vm + tls vinyl
+      image: "/lovable-uploads/fc4acd92-53f9-4b64-8439-b8031768b70c.png", // vm + tls vinyl.png
       type: "vinyl",
       priority: 1,
-      price: "€22.99 (tax excluded)",
+      price: "€27.90 (tax excluded)", // prezzo aggiornato
       buyUrl: "https://elasticstage.com/rinfiggi/releases/the-lost-transmissions-singleep"
     },
     { 
@@ -51,7 +51,7 @@ const MerchSection = () => {
     { 
       id: 3, 
       name: '"voicemail + the lost transmissions" cd + booklet', 
-      image: "/lovable-uploads/59647938-a718-498e-bcc7-75c190b0d860.png", // vm + tls cd
+      image: "/lovable-uploads/59647938-a718-498e-bcc7-75c190b0d860.png", // vm + tls cd.png
       type: "cd",
       priority: 3,
       price: "€15.40 (tax excluded)",
@@ -60,7 +60,7 @@ const MerchSection = () => {
     { 
       id: 4, 
       name: '"voicemail" cd', 
-      image: "/lovable-uploads/9d89d8d1-15a7-4e63-891b-6fde46daf2db.png", // vm cd
+      image: "/lovable-uploads/9d89d8d1-15a7-4e63-891b-6fde46daf2db.png", // vm cd.png
       type: "cd",
       priority: 4,
       price: "€13.90 (tax excluded)",
@@ -69,7 +69,7 @@ const MerchSection = () => {
     { 
       id: 5, 
       name: '"voicemail" vinyl', 
-      image: "/lovable-uploads/bf767b34-63bd-4240-bb96-9adb0e11aa1e.png", // vm vinyl
+      image: "/lovable-uploads/bf767b34-63bd-4240-bb96-9adb0e11aa1e.png", // vm vinyl.png
       type: "vinyl",
       priority: 5,
       price: "€33.90 (tax excluded)",
@@ -78,7 +78,7 @@ const MerchSection = () => {
     { 
       id: 6, 
       name: 'richard died, january killed him – tote bag', 
-      image: "/lovable-uploads/595315cb-2e68-454b-a1b4-a64891823e39.png", // tote bag
+      image: "/lovable-uploads/0692eb72-664b-422c-913c-e01d00745392.png", // tote bag_nobg.png
       type: "merch",
       priority: 6,
       price: "€10.00 (tax excluded)",
@@ -86,7 +86,6 @@ const MerchSection = () => {
     }
   ];
 
-  // Ordina gli articoli per "priority"
   const sortedItems = [...merchItems].sort((a, b) => a.priority - b.priority);
 
   const renderItemIcon = (type: string) => {
@@ -106,19 +105,17 @@ const MerchSection = () => {
         purchases are completed on external partner sites.<br />extra shipping or tax fees may apply.
       </p>
       <div className="w-full max-w-2xl pb-6">
-        <Carousel className="relative px-10">
+        <Carousel className="relative px-3 sm:px-10">
           <CarouselContent>
             {sortedItems.map((item) => (
-              <CarouselItem key={item.id} className="transition-all duration-300 py-4 px-2">
+              <CarouselItem key={item.id} className="transition-all duration-300 py-4 px-1 sm:px-2">
                 <div className="flex flex-col items-center overflow-visible h-full">
+                  {/* SOLO L'IMMAGINE "NATURALE" SENZA CONTENITORI O SFONDI AGGIUNTIVI */}
                   <div
-                    className={
-                      "w-40 h-40 mb-4 flex flex-col items-center justify-center bg-pixel-purple/10 pixel-border"
-                    }
+                    className="mb-4 flex flex-col items-center justify-center"
                     style={{
-                      boxShadow: 'none', // senza ombra
                       borderRadius: 0,
-                      overflow: 'hidden'
+                      overflow: 'visible'
                     }}
                   >
                     {renderItemIcon(item.type)}
@@ -127,18 +124,18 @@ const MerchSection = () => {
                       alt={`${item.name} merch`} 
                       className="object-contain"
                       style={{
-                        width: '144px',
-                        height: '144px',
+                        width: '132px',
+                        height: '132px',
                         objectFit: 'contain',
                         display: 'block',
                         border: 'none',
                         borderRadius: 0,
                         margin: 0,
-                        boxShadow: 'none'
+                        boxShadow: '0px 3px 20px 0px rgba(0,0,0,0.10)' // soft natural ombra
                       }}
                     />
                   </div>
-                  <p className="text-soft-pink text-center mb-2 whitespace-pre-line lowercase">
+                  <p className="text-soft-pink text-center mb-2 whitespace-pre-line lowercase text-[15px] sm:text-base">
                     {item.name}
                   </p>
                   <p className="text-pixel-purple text-center mb-4 animate-pulse lowercase">
@@ -149,6 +146,7 @@ const MerchSection = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="pixel-button transition-all text-xs px-5 py-2 lowercase"
+                    style={{ color: "#FFF" }} // bianco
                   >
                     buy ✧
                   </a>
@@ -165,4 +163,3 @@ const MerchSection = () => {
 };
 
 export default MerchSection;
-

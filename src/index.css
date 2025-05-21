@@ -229,3 +229,60 @@ body, h1, h2, h3, h4, h5, h6, p, strong, em, span, a, button, label, input, text
 a, button {
   text-transform: lowercase !important;
 }
+
+/* Responsive padding e sezione */
+@media (max-width: 639px) {
+  .pixel-section {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+  .pixel-section-title {
+    font-size: 2rem !important;
+  }
+  .merch-lower-sub {
+    font-size: 1rem !important;
+    line-height: 1.19 !important;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+}
+
+/* Aggiungo più margine orizzontale da mobile a tablet */
+@media (max-width: 1023px) {
+  .max-w-6xl {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+}
+
+/* Spaziatura e dimensioni generali */
+.pixel-section {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+@media (min-width: 1200px) {
+  .pixel-section {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+    padding-top: 4.5rem;
+    padding-bottom: 4.5rem;
+  }
+}
+
+/* Bottoni: colore testo bianco */
+.pixel-button {
+  color: #fff !important;
+}
+
+/* Usercentrics CMP: stile di base suggerito (override minimal per coerenza, può essere migliorato) */
+.usercentrics-root,
+#usercentrics-cmp {
+  font-family: 'Jacquard 12', 'Press Start 2P', cursive, serif !important;
+  color: #ffc1cb !important;
+  background: #13121A !important;
+  border-radius: 0 !important;
+  text-transform: lowercase !important;
+}
