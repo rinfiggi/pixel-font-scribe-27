@@ -17,7 +17,6 @@ const Index = () => {
           <section id="tour">
             <TourSection />
           </section>
-          {/* Ora le due sezioni sono una sotto l'altra anche su desktop */}
           <section id="music">
             <MusicSection />
           </section>
@@ -33,7 +32,6 @@ const Index = () => {
         </main>
         <Footer />
       </div>
-      {/* CookieBanner rimosso */}
     </div>
   );
 };

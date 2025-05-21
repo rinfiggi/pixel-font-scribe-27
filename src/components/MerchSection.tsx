@@ -1,20 +1,18 @@
 
 import React from 'react';
-import { Disc, ShoppingBag } from 'lucide-react';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 
-// Colore sottotitolo merch: più scuro di pixel-purple
 const merchSubtitleStyle: React.CSSProperties = {
-  fontSize: "1.15rem",
-  lineHeight: "1.08", // meno spazio tra le righe
+  fontSize: "1.11rem",
+  lineHeight: "1.03",
   fontWeight: 400,
   letterSpacing: "0.015em",
-  marginBottom: "1.1rem",
+  marginBottom: "1rem",
   marginTop: "-7px",
   textAlign: "center",
   maxWidth: "32rem",
   fontFamily: "'Jacquard 12', 'Press Start 2P', cursive, serif",
-  color: "#674dbe", // più scuro di pixel-purple
+  color: "#6741a6", // Scuro rispetto al merch (pixel-purple)
   textTransform: "lowercase"
 };
 
@@ -33,10 +31,10 @@ const MerchSection = () => {
     { 
       id: 1, 
       name: '"the lost transmissions" vinyl', 
-      image: "/lovable-uploads/fc4acd92-53f9-4b64-8439-b8031768b70c.png", // vm + tls vinyl.png
+      image: "/lovable-uploads/fc4acd92-53f9-4b64-8439-b8031768b70c.png", // tls vinyl.png
       type: "vinyl",
       priority: 1,
-      price: "€27.90 (tax excluded)", // prezzo aggiornato
+      price: "€27.90 (tax excluded)",
       buyUrl: "https://elasticstage.com/rinfiggi/releases/the-lost-transmissions-singleep"
     },
     { 
@@ -88,16 +86,6 @@ const MerchSection = () => {
 
   const sortedItems = [...merchItems].sort((a, b) => a.priority - b.priority);
 
-  const renderItemIcon = (type: string) => {
-    switch(type) {
-      case 'vinyl':
-      case 'cd':
-        return <Disc size={24} className="mb-2 text-soft-pink animate-spin-slow" />;
-      default:
-        return <ShoppingBag size={24} className="mb-2 text-soft-pink animate-pulse" />;
-    }
-  };
-
   return (
     <section className="pixel-section">
       <h2 className="pixel-section-title font-jacquard text-[52px] animate-pulse lowercase">merch</h2>
@@ -108,33 +96,25 @@ const MerchSection = () => {
         <Carousel className="relative px-3 sm:px-10">
           <CarouselContent>
             {sortedItems.map((item) => (
-              <CarouselItem key={item.id} className="transition-all duration-300 py-4 px-1 sm:px-2">
+              <CarouselItem key={item.id} className="transition-all duration-300 py-4 px-2">
                 <div className="flex flex-col items-center overflow-visible h-full">
-                  {/* SOLO L'IMMAGINE "NATURALE" SENZA CONTENITORI O SFONDI AGGIUNTIVI */}
-                  <div
-                    className="mb-4 flex flex-col items-center justify-center"
+                  {/* Solo immagine naturale, no sfondi, ombre rimosse */}
+                  <img 
+                    src={item.image} 
+                    alt={`${item.name} merch`} 
+                    className="object-contain"
                     style={{
+                      width: '150px',
+                      height: '150px',
+                      objectFit: 'contain',
+                      display: 'block',
+                      border: 'none',
                       borderRadius: 0,
-                      overflow: 'visible'
+                      margin: 0,
+                      boxShadow: 'none',
+                      background: 'none'
                     }}
-                  >
-                    {renderItemIcon(item.type)}
-                    <img 
-                      src={item.image} 
-                      alt={`${item.name} merch`} 
-                      className="object-contain"
-                      style={{
-                        width: '132px',
-                        height: '132px',
-                        objectFit: 'contain',
-                        display: 'block',
-                        border: 'none',
-                        borderRadius: 0,
-                        margin: 0,
-                        boxShadow: '0px 3px 20px 0px rgba(0,0,0,0.10)' // soft natural ombra
-                      }}
-                    />
-                  </div>
+                  />
                   <p className="text-soft-pink text-center mb-2 whitespace-pre-line lowercase text-[15px] sm:text-base">
                     {item.name}
                   </p>
@@ -146,7 +126,7 @@ const MerchSection = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="pixel-button transition-all text-xs px-5 py-2 lowercase"
-                    style={{ color: "#FFF" }} // bianco
+                    style={{ color: "#FFF" }}
                   >
                     buy ✧
                   </a>
