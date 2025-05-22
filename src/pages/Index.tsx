@@ -6,7 +6,6 @@ import MusicSection from '../components/MusicSection';
 import MerchSection from '../components/MerchSection';
 import SubscribeSection from '../components/SubscribeSection';
 import Footer from '../components/Footer';
-import IssuesSection from '../components/IssuesSection';
 import SocialIcons from '../components/SocialIcons';
 // Please ensure ContactInfo is correctly imported as a React component
 import ContactInfo from '../components/ContactInfo';
@@ -27,7 +26,7 @@ const Index = () => {
             <MerchSection />
           </section>
           <SocialIcons />
-          <IssuesSection />
+          {/* IssuesSection rimosso come richiesto */}
           <section id="newsletter">
             <SubscribeSection />
           </section>
