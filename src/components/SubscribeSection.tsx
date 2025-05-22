@@ -1,11 +1,12 @@
-
 import React, { useState } from 'react';
 import { Button } from './ui/button';
 import { Sparkles } from 'lucide-react';
 import { useToast } from "@/hooks/use-toast";
 import { Mail } from 'lucide-react';
 const SubscribeSection = () => {
-  const { toast } = useToast();
+  const {
+    toast
+  } = useToast();
   const [loading, setLoading] = useState(false);
   const handleRedirect = () => {
     setLoading(true);
@@ -19,22 +20,18 @@ const SubscribeSection = () => {
     }, 1500);
   };
   return <section className="pixel-section">
-      <h2 className="pixel-section-title font-jacquard text-[min(12vw,52px)] sm:text-[52px] animate-pulse">stay updated ✧</h2>
+      <h2 className="pixel-section-title font-jacquard text-[min(12vw,52px)] sm:text-[52px] animate-pulse text-center">stay updated ✧</h2>
       <div className="max-w-[320px] w-full mb-6 text-center mx-auto sm:max-w-md">
         <p className="text-soft-pink mb-6 text-base">sign up to receive updates about new releases, tour dates, and merch drops</p>
         <div className="w-full flex justify-center">
           <Button onClick={handleRedirect} className="pixel-button !border-2 !border-black h-12 min-w-[180px] sm:min-w-[200px] transition-all duration-300 hover:-translate-y-1" disabled={loading}>
-            {loading ? (
-              <div className="flex items-center gap-2">
+            {loading ? <div className="flex items-center gap-2">
                 <div className="animate-spin h-4 w-4 border-2 border-current border-t-transparent rounded-full"></div>
                 <span>sending...</span>
-              </div>
-            ) : (
-              <div className="flex items-center gap-2">
+              </div> : <div className="flex items-center gap-2">
                 <Mail size={16} />
                 <span>subscribe</span>
-              </div>
-            )}
+              </div>}
           </Button>
         </div>
       </div>
