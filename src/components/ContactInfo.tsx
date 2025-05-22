@@ -1,5 +1,9 @@
+
 import React from 'react';
+
 const ContactInfo = () => {
-  return;
+  // Placeholder: no content needed, just to avoid build error
+  return null;
 };
+
 export default ContactInfo;

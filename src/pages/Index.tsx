@@ -16,7 +16,9 @@ const Index = () => {
       <div className="max-w-6xl mx-auto pt-10">
         <Header />
         <main className="flex flex-col gap-16">
+          {/* Esempio: aggiungo una animazione pulsante al titolo del primo blocco */}
           <section id="tour">
+            <div className="pixel-section-title animate-pulse mb-4">tour</div>
             <TourSection />
           </section>
           <section id="music">
@@ -26,7 +28,7 @@ const Index = () => {
             <MerchSection />
           </section>
           <SocialIcons />
-          {/* IssuesSection rimosso come richiesto */}
+          {/* IssuesSection rimosso */}
           <section id="newsletter">
             <SubscribeSection />
           </section>
