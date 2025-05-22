@@ -1,25 +1,28 @@
 
 import React from 'react';
+import SocialIcons from './SocialIcons';
 
 const handleUCPreferences = (e: React.MouseEvent<HTMLAnchorElement>) => {
   e.preventDefault();
-  // Usercentrics 3.x API
   if (window && (window as any).Usercentrics) {
     try {
       (window as any).Usercentrics.showFirstLayer();
     } catch (err) {
-      // fallback: force reload, Usercentrics will show on reload if consent not given
       window.location.reload();
     }
   } else {
-    // fallback: force reload, Usercentrics will show on reload if consent not given
     window.location.reload();
   }
 };
 
 const Footer = () => {
-  return <footer className="px-4 text-center py-[11px] my-0">
+  return (
+    <footer className="px-4 text-center py-[16px] my-0">
       <div className="max-w-md mx-auto flex flex-col items-center gap-2">
+        {/* Social icons sopra copyright */}
+        <div className="mb-2">
+          <SocialIcons />
+        </div>
         <p className="text-xs text-soft-pink opacity-70">
           &copy; {new Date().getFullYear()} rinfiggi ✧ all rights reserved
         </p>
@@ -32,6 +35,7 @@ const Footer = () => {
           gestisci preferenze cookie
         </a>
       </div>
-    </footer>;
+    </footer>
+  );
 };
 export default Footer;

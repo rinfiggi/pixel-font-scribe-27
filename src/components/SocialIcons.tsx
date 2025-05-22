@@ -8,19 +8,19 @@ const SOCIALS = [
   { name: "Facebook", url: "https://facebook.com/rinfiggi", Icon: Facebook },
 ];
 
-const SocialIcons = () => (
-  <div className="flex gap-3 justify-center mt-6 mb-4">
+const SocialIcons = ({ size = 26 }: { size?: number }) => (
+  <div className="flex gap-3 justify-center">
     {SOCIALS.map(({ name, url, Icon }) => (
       <a
         key={name}
         href={url}
         target="_blank"
         rel="noopener noreferrer"
-        className="rounded-full bg-pixel-purple/[0.13] border border-pixel-purple/30 hover:bg-pixel-purple hover:text-soft-pink transition-colors p-2 flex items-center"
+        className="rounded-full bg-pixel-purple/[0.13] border border-pixel-purple/30 hover:bg-pixel-purple hover:text-soft-pink transition-colors p-2 flex items-center shadow-pixel"
         aria-label={`rinfiggi on ${name}`}
         style={{ boxShadow: "0 1px 4px rgba(155,135,245,0.18)" }}
       >
-        <Icon size={26} />
+        <Icon size={size} />
       </a>
     ))}
   </div>

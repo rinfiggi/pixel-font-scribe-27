@@ -470,3 +470,252 @@ img, svg, video {
     background: #fff !important;
   }
 }
+
+/* Miglioro interlinea/vibe issues-section mobile */
+.pixel-section-title,
+.issues-section-title {
+  text-transform: lowercase !important;
+}
+
+.issues-section-title {
+  font-family: 'Jacquard 12', cursive, serif;
+  font-size: min(11vw, 38px);
+  line-height: 1.22;
+  margin-bottom: 1.2rem;
+  animation: pulse 2s ease-in-out infinite;
+  letter-spacing: 0.01em;
+}
+
+@media (max-width: 639px) {
+  .issues-section-title {
+    font-size: 2.2rem !important;
+    line-height: 1.14;
+    margin-bottom: 0.8rem;
+  }
+  .pixel-section-title {
+    font-size: 2.3rem !important;
+    margin-bottom: 1rem;
+  }
+}
+
+/* Lista issues migliorata: padding/link align/box shadow */
+.issues-section-list {
+  width: 100%;
+  max-width: 33rem;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  align-items: center;
+  padding: 0;
+}
+
+.issues-section-list li {
+  width: 100%;
+  max-width: 23rem;
+  transition: transform 0.13s cubic-bezier(.53,.21,.33,1.59);
+}
+
+.issues-section-list li:hover {
+  transform: scale(1.045);
+}
+
+.issues-section-link {
+  display: block;
+  width: 100%;
+  border-radius: 1rem;
+  padding: 1.1rem 1.4rem;
+  box-shadow: 0px 2px 28px 0px rgba(155,135,245,0.09);
+  font-size: 1rem;
+  color: #9b87f5;
+  background: linear-gradient(105deg, #13121A 60%, #2f2961 100%);
+  border: 1.5px solid #9b87f5;
+  transition: box-shadow .18s cubic-bezier(.53,.21,.33,1.39), color .13s;
+  position: relative;
+}
+
+.issues-section-link:hover {
+  box-shadow: 0 6px 25px 1px #ffc1cb33, 0 2px 7px 2px #9b87f53c;
+  color: #ffc1cb;
+}
+
+.issues-section-link .issues-section-emoji {
+  font-size: 1.8rem;
+  margin-right: 1.2rem;
+  vertical-align: middle;
+}
+
+.issues-section-link .issues-section-text {
+  font-size: 1.09rem;
+  letter-spacing: 0.01em;
+}
+
+/* SECTION & TITLE SIZE TWEAKS */
+.pixel-section-title {
+  @apply font-jacquard;
+  text-transform: lowercase !important;
+  /* Enlarged for mobile/desktop responsiveness */
+  font-size: min(12vw, 52px) !important;
+  margin-bottom: 1.5rem;
+}
+
+@media (max-width: 639px) {
+  .pixel-section-title {
+    font-size: 2.3rem !important;
+    margin-bottom: 1rem;
+  }
+  /* Reduce default font-size for body and .font-pixel elements */
+  body, .font-pixel {
+    font-size: 12px !important;
+  }
+  .pixel-button {
+    font-size: 12px !important;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+  /* Make 'get in touch' box smaller on mobile */
+  .max-w-\[220px\] {
+    max-width: 170px !important;
+  }
+  .sm\:max-w-sm {
+    max-width: 90vw !important; /* failsafe for edge screens */
+  }
+}
+
+/* Fix Press Start 2P font sizes in buttons and wherever used */
+.pixel-button, button, .font-pixel {
+  font-family: 'Press Start 2P', cursive !important;
+  font-size: 14px;
+  white-space: normal;
+}
+@media (max-width: 639px) {
+  .pixel-button, button, .font-pixel {
+    font-size: 10px !important;
+  }
+}
+
+/* Enlarged merch images, remove shadow and dot, center block */
+.merch-lower-sub { /* unchanged */ }
+.pixel-section { /* unchanged (padding/margin) */   }
+/* Remove shadow and dot from merch images */
+.pixel-section .carousel img {
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  width: 185px !important;
+  height: 185px !important;
+}
+@media (max-width: 639px) {
+  .pixel-section .carousel img {
+    width: 130px !important;
+    height: 130px !important;
+  }
+}
+
+/* Hide the pink dot/Disc in merch images: (handled in TSX by not rendering icon) */
+
+/* Usercentrics styles (minimal override) */
+.usercentrics-root,
+#usercentrics-cmp {
+  font-family: 'Jacquard 12', 'Press Start 2P', cursive, serif !important;
+  color: #ffc1cb !important;
+  background: #13121A !important;
+  border-radius: 0 !important;
+  text-transform: lowercase !important;
+  z-index: 999999;
+}
+
+/* Usercentrics CMP: stile di base suggerito (override minimal per coerenza, può essere migliorato) */
+.usercentrics-root,
+#usercentrics-cmp {
+  font-family: 'Jacquard 12', 'Press Start 2P', cursive, serif !important;
+  color: #ffc1cb !important;
+  background: #13121A !important;
+  border-radius: 0 !important;
+  text-transform: lowercase !important;
+}
+
+/* Titoli ancora più grandi da mobile */
+@media (max-width: 639px) {
+  .pixel-section-title {
+    font-size: 2.7rem !important;
+    margin-bottom: 1rem;
+    line-height: 1.1;
+  }
+  /* Reduce default font-size for body and .font-pixel elements */
+  body, .font-pixel {
+    font-size: 12px !important;
+  }
+  .pixel-button {
+    font-size: 12px !important;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+  /* Make 'get in touch' box smaller on mobile */
+  .max-w-\[220px\] {
+    max-width: 170px !important;
+  }
+  .sm\:max-w-sm {
+    max-width: 90vw !important; /* failsafe for edge screens */
+  }
+  /* Sposta le frecce ancora più all’esterno da mobile */
+  .carousel .absolute.-left-2,
+  .carousel .absolute.md\:left-4 {
+    left: -36px !important;
+  }
+  .carousel .absolute.-right-2,
+  .carousel .absolute.md\:right-4 {
+    right: -36px !important;
+  }
+}
+
+/* UNIFORMAZIONE ALTEZZA & ANIMAZIONE BOTTONI */
+.pixel-button {
+  color: #fff !important;
+  min-height: 48px;
+  height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.18s cubic-bezier(0.4,0,0.6,1);
+  animation: none;
+  font-family: 'Press Start 2P', cursive !important;
+  font-size: 13px !important;
+  /* Animazione hover come il tasto buy di merch (rimbalzo/sfalsamento) */
+}
+
+.pixel-button:hover, .pixel-button:focus-visible {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 2px 16px 1px rgba(155,135,245,0.17), 6px 6px 0px 0px rgba(0,0,0,0.8);
+}
+
+.pixel-button:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: 2px 2px 0px 0px rgba(0,0,0,0.7);
+}
+
+@media (max-width: 639px) {
+  .pixel-button {
+    min-height: 40px;
+    height: 40px;
+    font-size: 11px !important;
+  }
+}
+
+/* Rendi .carousel button (frecce) più grandi per facilità touch */
+.carousel .absolute.h-8.w-8 {
+  height: 40px !important;
+  width: 40px !important;
+  min-width: 36px;
+}
+
+.carousel .absolute {
+  z-index: 10;
+}
+
+/* Frecce outline per essere più visibili su mobile */
+@media (max-width: 639px) {
+  .carousel .absolute.h-8.w-8 {
+    border: 2px solid #9b87f5 !important;
+    background: #fff !important;
+  }
+}
