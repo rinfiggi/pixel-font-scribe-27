@@ -45,28 +45,25 @@ const Footer = () => {
         <p className="text-xs text-soft-pink opacity-70">
           &copy; {new Date().getFullYear()} rinfiggi ✧ all rights reserved
         </p>
-        {/* Bloccone unificato con transizioni e font più piccolo */}
-        <div 
-          className="flex flex-wrap justify-center gap-x-2 gap-y-1 sm:text-[11px] text-[9px] mt-1 items-center font-pixel text-pixel-purple/90 transition-all"
-          style={{ lineHeight: "1.5", letterSpacing: "0.01em" }}
-        >
+        <div className="flex flex-wrap justify-center gap-x-2 gap-y-1 text-[11px] mt-1">
           <a
             href="#"
-            className="underline decoration-pixel-purple/40 underline-offset-2 hover:text-soft-pink transition duration-200 hover:scale-105"
+            className="text-pixel-purple underline decoration-pixel-purple/30 underline-offset-2 transition hover:text-soft-pink"
             onClick={handleUCPreferences}
             aria-label="Gestisci preferenze cookie"
-            style={{ whiteSpace: 'nowrap' }}
           >
             gestisci preferenze cookie
           </a>
+          {/* Divider and activism issues links */}
+          {/* Ciclo sui link con un trattino come separatore */}
           {issuesLinks.map((l, i) => (
             <React.Fragment key={l.url}>
-              <span className="text-soft-pink/80 px-1 transition-all select-none">-</span>
+              <span className="text-soft-pink/60 px-1 select-none">-</span>
               <a
                 href={l.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="underline decoration-pixel-purple/40 underline-offset-2 hover:text-soft-pink transition duration-200 hover:scale-105"
+                className="text-pixel-purple underline decoration-pixel-purple/30 underline-offset-2 hover:text-soft-pink transition"
                 style={{ whiteSpace: 'nowrap' }}
               >
                 {l.label}
@@ -78,5 +75,4 @@ const Footer = () => {
     </footer>
   );
 };
-
 export default Footer;
