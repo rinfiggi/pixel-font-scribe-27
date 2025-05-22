@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Headphones, ExternalLink } from 'lucide-react';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
@@ -6,18 +7,19 @@ import { AspectRatio } from "@/components/ui/aspect-ratio";
 interface MusicTrack {
   id: number;
   title: string;
-  type: 'album' | 'single';
+  type: 'album' | 'album deluxe' | 'single';
   artworkUrl: string;
   streamUrl: string;
   buyUrl: string;
 }
 
-// Prima traccia: voicemail + the lost transmissions
+// Prima traccia: voicemail + the lost transmissions (album deluxe)
+// Voicemail (album)
 const tracks: MusicTrack[] = [
   {
     id: 1,
     title: "voicemail + the lost transmissions",
-    type: 'album',
+    type: 'album deluxe',
     artworkUrl: "https://i1.sndcdn.com/artworks-9vbko426eBsqGS2B-0baaMg-t500x500.jpg",
     streamUrl: "https://ffm.to/vm_deluxe",
     buyUrl: "https://rinfiggi.bandcamp.com"
@@ -41,7 +43,7 @@ const tracks: MusicTrack[] = [
   {
     id: 2,
     title: "voicemail",
-    type: 'single',
+    type: 'album',
     artworkUrl: "https://i1.sndcdn.com/artworks-rCyvgbpj05XUwip5-3fFt5A-t500x500.jpg",
     streamUrl: "https://open.spotify.com/album/3zIU5sA3UYx580CVVWCDta?si=1J-djPkRQ0CsuucxtskBCw",
     buyUrl: "https://rinfiggi.bandcamp.com"
@@ -65,7 +67,7 @@ const MusicSection = () => {
                 {track.title}
               </h3>
               <p className="text-xs text-pixel-purple mb-2">
-                {track.type === 'album' ? 'album' : 'single'}
+                {track.type}
               </p>
               <div className="flex gap-4 mt-3">
                 <a href={track.streamUrl} target="_blank" rel="noopener noreferrer" className="pixel-button text-xs px-3 py-1 inline-block transition-all duration-300 hover:-translate-y-1" style={{ color: "#FFF" }}>
@@ -105,3 +107,4 @@ const MusicSection = () => {
   </section>;
 };
 export default MusicSection;
+
