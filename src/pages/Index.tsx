@@ -6,6 +6,9 @@ import MusicSection from '../components/MusicSection';
 import MerchSection from '../components/MerchSection';
 import SubscribeSection from '../components/SubscribeSection';
 import Footer from '../components/Footer';
+import IssuesSection from '../components/IssuesSection';
+import SocialIcons from '../components/SocialIcons';
+// Please ensure ContactInfo is correctly imported as a React component
 import ContactInfo from '../components/ContactInfo';
 
 const Index = () => {
@@ -17,13 +20,14 @@ const Index = () => {
           <section id="tour">
             <TourSection />
           </section>
-          {/* Ora le due sezioni sono una sotto l'altra anche su desktop */}
           <section id="music">
             <MusicSection />
           </section>
           <section id="merch">
             <MerchSection />
           </section>
+          <SocialIcons />
+          <IssuesSection />
           <section id="newsletter">
             <SubscribeSection />
           </section>
@@ -33,7 +37,6 @@ const Index = () => {
         </main>
         <Footer />
       </div>
-      {/* CookieBanner rimosso */}
     </div>
   );
 };

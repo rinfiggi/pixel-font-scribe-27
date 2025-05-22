@@ -1,9 +1,10 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Disc, ShoppingBag } from 'lucide-react';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import { Button } from "./ui/button";
+import { useToast } from "@/hooks/use-toast";
 
-// Merch subtitle color: darker than pixel-purple
 const merchSubtitleStyle: React.CSSProperties = {
   fontSize: "1.15rem",
   lineHeight: "1.08",
@@ -14,7 +15,7 @@ const merchSubtitleStyle: React.CSSProperties = {
   textAlign: "center",
   maxWidth: "32rem",
   fontFamily: "'Jacquard 12', serif, cursive",
-  color: "#674dbe", // darker than pixel-purple
+  color: "#674dbe",
   textTransform: "lowercase"
 };
 
@@ -29,7 +30,20 @@ interface MerchItem {
   subtitle?: string;
 }
 
+const redirectMessages = [
+  "the final touch happens elsewhere — taking you there now ✧₊˚｡",
+  "you’re being redirected to complete this moment — don’t blink ☆彡"
+];
+
+const getRandomRedirectMsg = () => {
+  const idx = Math.floor(Math.random() * redirectMessages.length);
+  return redirectMessages[idx];
+};
+
 const MerchSection = () => {
+  const [redirectingId, setRedirectingId] = useState<number | null>(null);
+  const { toast } = useToast();
+
   const merchItems: MerchItem[] = [
     {
       id: 1,
@@ -84,7 +98,7 @@ const MerchSection = () => {
     {
       id: 6,
       name: 'richard died, january killed him – tote bag',
-      image: "/lovable-uploads/0a665d38-08dc-46d4-89fe-3c6b26653b5d.png",
+      image: "/lovable-uploads/tote%20bag_nobg.png", // tote bag_nobg.png as per your request
       type: "merch",
       priority: 6,
       price: "€10.00",
@@ -95,19 +109,30 @@ const MerchSection = () => {
 
   const sortedItems = [...merchItems].sort((a, b) => a.priority - b.priority);
 
-  const renderItemIcon = (type: string) => {
-    switch(type) {
-      case 'vinyl':
-      case 'cd':
-        return <Disc size={24} className="mb-2 text-soft-pink animate-spin-slow" />;
-      default:
-        return <ShoppingBag size={24} className="mb-2 text-soft-pink animate-pulse" />;
-    }
+  // Custom handlers for arrows placement
+  const arrowClass =
+    "absolute top-1/2 transform -translate-y-1/2 bg-transparent border-none hover:bg-transparent text-pixel-purple hover:text-soft-pink shadow-none opacity-100 transition-transform hover:scale-110 z-10";
+  const arrowMobileOffset = "left-[-28px] md:-left-4";
+  const arrowMobileOffsetRight = "right-[-28px] md:-right-4";
+
+  const handleBuy = (url: string, id: number) => {
+    setRedirectingId(id);
+    toast({
+      title: "redirecting...",
+      description: getRandomRedirectMsg(),
+      duration: 2200,
+    });
+    setTimeout(() => {
+      window.open(url, "_blank", "noopener noreferrer");
+      setRedirectingId(null);
+    }, 1600);
   };
 
   return (
     <section className="pixel-section">
-      <h2 className="pixel-section-title font-jacquard text-[min(12vw,52px)] sm:text-[52px] animate-pulse lowercase">merch</h2>
+      <h2 className="pixel-section-title font-jacquard text-[min(16vw,66px)] sm:text-[66px] animate-pulse lowercase">
+        merch
+      </h2>
       <p className="merch-lower-sub" style={merchSubtitleStyle}>
         purchases are completed on external partner sites.<br />extra shipping or tax fees may apply.
       </p>
@@ -117,7 +142,6 @@ const MerchSection = () => {
             {sortedItems.map((item) => (
               <CarouselItem key={item.id} className="transition-all duration-300 py-4 px-1 sm:px-2">
                 <div className="flex flex-col items-center overflow-visible h-full">
-                  {/* NO DOT! Only enlarge image, remove shadow */}
                   <div
                     className="mb-4 flex flex-col items-center justify-center"
                     style={{
@@ -125,15 +149,13 @@ const MerchSection = () => {
                       overflow: 'visible'
                     }}
                   >
-                    {/* (icon optional here - comment out if you want no icons as well) */}
-                    {/* {renderItemIcon(item.type)} */}
                     <img
                       src={item.image}
                       alt={`${item.name} merch`}
                       className="object-contain"
                       style={{
-                        width: '185px',
-                        height: '185px',
+                        width: '210px',
+                        height: '210px',
                         objectFit: 'contain',
                         display: 'block',
                         border: 'none',
@@ -149,21 +171,21 @@ const MerchSection = () => {
                     <span className="text-pixel-purple text-center animate-pulse lowercase text-lg font-semibold">{item.price}</span>
                     <span className="text-xs text-[#674dbe] -mt-0.5">{item.subtitle}</span>
                   </div>
-                  <a
-                    href={item.buyUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="pixel-button transition-all duration-300 text-xs px-5 py-2 lowercase hover:-translate-y-1"
-                    style={{ color: "#FFF" }}
+                  <Button
+                    onClick={() => handleBuy(item.buyUrl, item.id)}
+                    className={`pixel-button transition-all duration-300 text-xs px-5 py-2 lowercase hover:-translate-y-1 h-12 min-w-[140px] ${
+                      redirectingId === item.id ? "opacity-60 pointer-events-none" : ""
+                    }`}
+                    disabled={redirectingId === item.id}
                   >
                     buy ✧
-                  </a>
+                  </Button>
                 </div>
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="absolute -left-2 md:-left-4 top-1/2 transform -translate-y-1/2 bg-transparent border-none hover:bg-transparent text-pixel-purple hover:text-soft-pink shadow-none opacity-100 transition-transform hover:scale-110" />
-          <CarouselNext className="absolute -right-2 md:-right-4 top-1/2 transform -translate-y-1/2 bg-transparent border-none hover:bg-transparent text-pixel-purple hover:text-soft-pink shadow-none opacity-100 transition-transform hover:scale-110" />
+          <CarouselPrevious className={`${arrowClass} ${arrowMobileOffset}`} />
+          <CarouselNext className={`${arrowClass} ${arrowMobileOffsetRight}`} />
         </Carousel>
       </div>
     </section>
