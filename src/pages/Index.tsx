@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Header from '../components/Header';
 import TourSection from '../components/TourSection';
@@ -9,25 +8,23 @@ import Footer from '../components/Footer';
 import SocialIcons from '../components/SocialIcons';
 import ContactInfo from '../components/ContactInfo';
 import { useSectionReveal } from '../hooks/useSectionReveal';
-
-const SectionReveal = ({ id, children }: { id: string; children: React.ReactNode }) => {
-  const { ref, isVisible } = useSectionReveal();
-  return (
-    <section
-      id={id}
-      ref={ref as React.RefObject<HTMLElement>}
-      className={`transition-all duration-700 ease-out opacity-0 translate-y-7 ${
-        isVisible ? "opacity-100 translate-y-0" : ""
-      }`}
-    >
+const SectionReveal = ({
+  id,
+  children
+}: {
+  id: string;
+  children: React.ReactNode;
+}) => {
+  const {
+    ref,
+    isVisible
+  } = useSectionReveal();
+  return <section id={id} ref={ref as React.RefObject<HTMLElement>} className={`transition-all duration-700 ease-out opacity-0 translate-y-7 ${isVisible ? "opacity-100 translate-y-0" : ""}`}>
       {children}
-    </section>
-  );
+    </section>;
 };
-
 const Index = () => {
-  return (
-    <div className="min-h-screen bg-dark-purple px-4 md:px-10 bg-noise">
+  return <div className="min-h-screen bg-dark-purple px-4 md:px-10 bg-noise">
       <div className="max-w-6xl mx-auto pt-10">
         <Header />
         <main className="flex flex-col gap-16">
@@ -40,9 +37,7 @@ const Index = () => {
           <SectionReveal id="merch">
             <MerchSection />
           </SectionReveal>
-          <div>
-            <SocialIcons />
-          </div>
+          
           <SectionReveal id="newsletter">
             <SubscribeSection />
           </SectionReveal>
@@ -52,8 +47,6 @@ const Index = () => {
         </main>
         <Footer />
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default Index;
