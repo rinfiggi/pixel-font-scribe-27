@@ -7,8 +7,23 @@ import MerchSection from '../components/MerchSection';
 import SubscribeSection from '../components/SubscribeSection';
 import Footer from '../components/Footer';
 import SocialIcons from '../components/SocialIcons';
-// Please ensure ContactInfo is correctly imported as a React component
 import ContactInfo from '../components/ContactInfo';
+import { useSectionReveal } from '../hooks/useSectionReveal';
+
+const SectionReveal = ({ id, children }: { id: string; children: React.ReactNode }) => {
+  const { ref, isVisible } = useSectionReveal();
+  return (
+    <section
+      id={id}
+      ref={ref as React.RefObject<HTMLElement>}
+      className={`transition-all duration-700 ease-out opacity-0 translate-y-7 ${
+        isVisible ? "opacity-100 translate-y-0" : ""
+      }`}
+    >
+      {children}
+    </section>
+  );
+};
 
 const Index = () => {
   return (
@@ -16,23 +31,24 @@ const Index = () => {
       <div className="max-w-6xl mx-auto pt-10">
         <Header />
         <main className="flex flex-col gap-16">
-          <section id="tour">
+          <SectionReveal id="tour">
             <TourSection />
-          </section>
-          <section id="music">
+          </SectionReveal>
+          <SectionReveal id="music">
             <MusicSection />
-          </section>
-          <section id="merch">
+          </SectionReveal>
+          <SectionReveal id="merch">
             <MerchSection />
-          </section>
-          <SocialIcons />
-          {/* IssuesSection rimosso come richiesto */}
-          <section id="newsletter">
+          </SectionReveal>
+          <div>
+            <SocialIcons />
+          </div>
+          <SectionReveal id="newsletter">
             <SubscribeSection />
-          </section>
-          <section id="contact">
+          </SectionReveal>
+          <SectionReveal id="contact">
             <ContactInfo />
-          </section>
+          </SectionReveal>
         </main>
         <Footer />
       </div>

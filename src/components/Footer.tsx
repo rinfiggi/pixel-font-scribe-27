@@ -38,33 +38,40 @@ const Footer = () => {
   return (
     <footer className="px-4 text-center py-[16px] my-0">
       <div className="max-w-md mx-auto flex flex-col items-center gap-2">
-        {/* Social icons sopra copyright */}
         <div className="mb-2">
           <SocialIcons />
         </div>
         <p className="text-xs text-soft-pink opacity-70">
           &copy; {new Date().getFullYear()} rinfiggi ✧ all rights reserved
         </p>
-        <div className="flex flex-wrap justify-center gap-x-2 gap-y-1 text-[11px] mt-1">
+        <div
+          className="flex flex-wrap gap-x-2 gap-y-1 justify-center text-[11px] sm:text-xs font-semibold tracking-wide transition-all"
+          style={{
+            fontSize: "11px",
+            lineHeight: "1.8",
+            letterSpacing: "0.01em"
+          }}
+        >
           <a
             href="#"
-            className="text-pixel-purple underline decoration-pixel-purple/30 underline-offset-2 transition hover:text-soft-pink"
+            className="text-pixel-purple underline decoration-pixel-purple underline-offset-2 transition-colors hover:text-soft-pink"
             onClick={handleUCPreferences}
             aria-label="Gestisci preferenze cookie"
           >
             gestisci preferenze cookie
           </a>
-          {/* Divider and activism issues links */}
-          {/* Ciclo sui link con un trattino come separatore */}
           {issuesLinks.map((l, i) => (
             <React.Fragment key={l.url}>
-              <span className="text-soft-pink/60 px-1 select-none">-</span>
+              <span className="text-soft-pink/60 select-none">-</span>
               <a
                 href={l.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-pixel-purple underline decoration-pixel-purple/30 underline-offset-2 hover:text-soft-pink transition"
-                style={{ whiteSpace: 'nowrap' }}
+                className="text-pixel-purple underline decoration-pixel-purple underline-offset-2 hover:text-soft-pink transition-colors whitespace-nowrap"
+                style={{
+                  padding: "0 2px",
+                  fontWeight: 500
+                }}
               >
                 {l.label}
               </a>
@@ -75,4 +82,5 @@ const Footer = () => {
     </footer>
   );
 };
+
 export default Footer;
