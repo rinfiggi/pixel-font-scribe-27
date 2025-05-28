@@ -32,7 +32,7 @@ interface MerchItem {
 
 const redirectMessages = [
   "the final touch happens elsewhere — taking you there now ✧₊˚｡",
-  "you’re being redirected to complete this moment — don’t blink ☆彡"
+  "you're being redirected to complete this moment — don't blink ☆彡"
 ];
 
 const getRandomRedirectMsg = () => {
@@ -98,7 +98,7 @@ const MerchSection = () => {
     {
       id: 6,
       name: 'richard died, january killed him – tote bag',
-      image: "/lovable-uploads/tote%20bag_nobg.png", // tote bag_nobg.png as per your request
+      image: "/lovable-uploads/b08cdf8a-b9aa-40c9-adcf-0b24922ff272.png",
       type: "merch",
       priority: 6,
       price: "€10.00",
@@ -134,7 +134,7 @@ const MerchSection = () => {
         merch
       </h2>
       <p className="merch-lower-sub" style={merchSubtitleStyle}>
-        purchases are completed on external partner sites.<br />extra shipping or tax fees may apply.
+        purchases are completed on external sites.<br />extra shipping or tax fees may apply.
       </p>
       <div className="w-full max-w-2xl pb-6">
         <Carousel className="relative px-3 sm:px-10">
