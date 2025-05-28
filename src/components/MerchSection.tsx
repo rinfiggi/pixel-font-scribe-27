@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Disc, ShoppingBag } from 'lucide-react';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
@@ -116,14 +115,32 @@ const MerchSection = () => {
   const arrowMobileOffsetRight = "right-[-28px] md:-right-4";
 
   const handleBuy = (url: string, id: number) => {
+    console.log('handleBuy called with URL:', url, 'ID:', id);
     setRedirectingId(id);
     toast({
       title: "redirecting...",
       description: getRandomRedirectMsg(),
       duration: 2200,
     });
+    
+    // Use a more reliable method for mobile redirects
     setTimeout(() => {
-      window.open(url, "_blank", "noopener noreferrer");
+      try {
+        // First try to open in new tab/window
+        const newWindow = window.open(url, "_blank", "noopener noreferrer");
+        
+        // If window.open was blocked (common on mobile), use location.href as fallback
+        if (!newWindow || newWindow.closed || typeof newWindow.closed === 'undefined') {
+          console.log('window.open blocked, using location.href');
+          window.location.href = url;
+        } else {
+          console.log('Successfully opened in new window');
+        }
+      } catch (error) {
+        console.error('Error opening URL:', error);
+        // Final fallback - direct navigation
+        window.location.href = url;
+      }
       setRedirectingId(null);
     }, 1600);
   };
